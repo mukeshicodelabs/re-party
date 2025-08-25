@@ -1,0 +1,81 @@
+.featuredCollectionWrapper{
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @media(max-width: 768px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media(max-width: 500px){
+        grid-template-columns: repeat(1, 1fr);
+    }
+    & .collectionCard{
+        cursor: pointer;
+        padding: 50px;
+        background-color: #FAF9F7;
+        @media(max-width: 1220px){
+            padding: 24px;
+        }
+        & .featureImage{
+            & img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        & .featureInfo{
+            margin-top: 40px;
+            text-align: center;
+            @media(max-width: 1220px){
+                margin-top: 24px;
+            }
+            & .featureTitle{
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 100%;
+                margin-bottom: 10px;
+                letter-spacing: 0.44px;
+                color: var(--darkJungle);
+                font-family: var(--dmSansFamily);
+                @media(max-width: 960px){
+                    font-size: 16px;
+                }
+            }
+            & .featurePrice{
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: 400;
+                color: #7E7E7E;
+                line-height: 100%;
+                letter-spacing: 0.44px;
+                font-family: var(--dmSansFamily);
+                @media(max-width: 960px){
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+.viewListing{
+    margin-top: 40px;
+    text-align: center;
+
+    & button{
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 500;
+        line-height: 24px;
+        padding: 14px 40px;
+        letter-spacing: 0.6px;
+        color: var(--darkJungle);
+        text-transform: uppercase;
+        font-family: var(--dmSansFamily);
+        border: 1px solid var(--darkJungle);
+        @media(max-width: 1024px){
+            padding: 10px 30px;
+        }
+        &:hover{
+            color: #FAF9F7;
+            border: 1px solid var(--darkJungle);
+            background-color: var(--darkJungle);
+        }
+    }
+}

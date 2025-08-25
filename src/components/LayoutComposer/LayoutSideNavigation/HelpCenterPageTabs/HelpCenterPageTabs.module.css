@@ -1,0 +1,12 @@
+.tabs {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 54px;
+    padding-bottom: 0;
+    border-bottom: 1px solid #e5e5e5;
+
+    &>div {
+        min-width: fit-content;
+    }
+}

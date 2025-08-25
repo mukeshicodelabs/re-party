@@ -1,0 +1,59 @@
+@import '../../styles/customMediaQueries.css';
+
+.content {
+  @media (--viewportMedium) {
+    margin: 32px auto 0 auto;
+    max-width: 564px;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0;
+  }
+}
+
+.desktopTopbar,
+.mobileTopbar {
+  box-shadow: none;
+}
+
+.mainWrapper{
+  
+}
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0;
+  font-family: var(--dmSansFamily);
+}
+
+.contactRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.contactBox,
+.addressBox {
+  display: flex;
+  align-items: center;
+  background-color: #f9f6f3;
+  border-radius: 999px;
+  padding: 12px 20px;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--black);
+  width: fit-content;
+}
+
+.iconCircle {
+  width: 32px;
+  height: 32px;
+  background-color: #c3a87c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+}

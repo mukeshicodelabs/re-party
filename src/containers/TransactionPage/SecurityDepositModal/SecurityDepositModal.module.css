@@ -1,0 +1,31 @@
+.securityDepositTitle {
+  text-align: center;
+}
+
+.description {
+  font-size: 14px;
+  margin: 15px 0px 30px 0px;
+  padding: 0px 20px;
+  text-align: center;
+}
+.paymentWrapper {
+}
+.card {
+  border: 1px solid #d8dce6;
+  border-radius: 6px;
+  padding: 10px 0 10px 10px;
+}
+.infoText {
+  margin-top: 20px;
+}
+.submitButton {
+  margin-top: 20px;
+}
+
+.errorText {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--colorFail);
+}

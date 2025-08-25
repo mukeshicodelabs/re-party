@@ -1,0 +1,52 @@
+@import '../../../../styles/customMediaQueries.css';
+
+.root {
+  flex-grow: 1;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  flex-grow: 1;
+}
+
+.priceCurrencyInvalid {
+  color: var(--colorFail);
+}
+
+.headingName {
+  font-family: var(--playfairfamily);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 52px;
+  text-align: center;
+  letter-spacing: 0.1px;
+  color: var(--darkJungle);
+  margin: 0 0 10px;
+  padding: 0;
+
+  @media (max-width: 1024px) {
+    font-size: 34px;
+    line-height: 36px;
+  }
+}
+
+.subText {
+  font-family: var(--dmSansFamily);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.1px;
+  color: var(--CharcoalGrey);
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

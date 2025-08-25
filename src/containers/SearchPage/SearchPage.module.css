@@ -1,0 +1,448 @@
+@import '../../styles/customMediaQueries.css';
+
+.topbar {
+  width: 100%;
+
+  /* Top Bar's drop shadow should always be visible */
+  z-index: var(--zIndexTopbar);
+  position: relative;
+  position: sticky;
+  top: 0;
+  @media (--viewportMedium) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* We need to raise Topbar above .container */
+    z-index: var(--zIndexTopbar);
+  }
+}
+
+/* Can be given to Topbar when a modal is opened
+ * so that the Topbar is not rendered on top of it.*/
+.topbarBehindModal {
+  z-index: initial;
+}
+
+.container {
+  /* Layout */
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+
+  @media (--viewportMedium) {
+    position: relative;
+    /* padding-top: var(--topbarHeightDesktop); */
+    min-height: calc(100vh - var(--topbarHeightDesktop));
+  }
+}
+
+/* Container for side and content */
+.layoutWrapperContainer {
+  composes: container;
+  background: #fffefd;
+  /* parent aka root is flexbox, this container takes all available space */
+  /* flex-shrink: 0; */
+  /* gap: 50px; */
+  /* This container uses flexbox layout */
+  /* display: flex;
+  flex-direction: column; */
+  width: 100%;
+
+  /* When side nav is shown as a column, Topbar's box-shadow should be visible */
+  z-index: calc(var(--zIndexTopbar) - 1);
+
+  @media (--viewportMedium) {
+    /* flex-direction: row;
+    justify-content: center; */
+  }
+}
+.innerContainer {
+  gap: 50px;
+  display: flex;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 1400px;
+  @media (max-width: 1500px) {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.layoutWrapperFilterColumn {
+  display: none;
+
+  @media (--viewportMedium) {
+    width: 300px;
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* padding: 24px 0 0 24px; */
+    background-color: #fffefd;
+  }
+  @media (--viewportLarge) {
+    /* Layout */
+    /* padding: 40px 0 0 36px; */
+
+    flex-direction: column;
+    justify-content: flex-start;
+    border: none;
+    box-shadow: none;
+    /* background-color: transparent; */
+  }
+
+  /* @media (min-width: 1440px) {
+    padding: 0 0 0 calc((100vw - 1368px) / 2);
+  }
+  @media (--viewportXLarge) {
+    padding: 0 0 0 calc((100vw - 1800px) / 2);
+  } */
+}
+
+.filterColumnContent {
+  /* width: 210px; */
+  padding: 8px 0 0 0;
+
+  @media (--viewportMedium) {
+    padding: 8px 0 24px 0;
+    width: 300px;
+  }
+
+  @media (--viewportLarge) {
+    padding: 8px 0 24px 0;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 8px 0 24px 0;
+  }
+}
+.filter:first-child {
+  padding-top: 0;
+}
+
+.resetAllButton {
+  display: block;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: var(--desertSand);
+  font-family: var(--dmSansFamily);
+  text-decoration: underline;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+
+  /* Layout */
+  display: inline;
+  margin: 17px 0 0 0;
+  padding: 0;
+
+  /* Override button styles */
+  outline: none;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    color: var(--colorGrey700);
+  }
+
+  @media (--viewportMedium) {
+    margin: 24px 0 0 0;
+    padding: 3px 0 5px 0;
+  }
+  & svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    & path {
+      stroke: var(--desertSand);
+    }
+  }
+}
+
+.layoutWrapperMain {
+  /* Expand to the full remaining width of the viewport */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* padding: 0 24px 0 24px; */
+  background-color: #fffefd;
+
+  @media (--viewportMedium) {
+    /**
+     * Calculate right padding to match Footer right border
+     * and left padding together with border should be 60px.
+     */
+    /* padding: 24px 24px 0 24px; */
+    /* background-color: var(--colorWhite); */
+    /* border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: var(--colorGrey100); */
+  }
+
+  @media (--viewportLarge) {
+    /**
+     * Calculate right padding to match Footer right border
+     * and left padding together with border should be 60px.
+     */
+    /* padding: 40px 36px 0 36px; */
+  }
+
+  /* @media (min-width: 1440px) {
+    padding: 0 calc((100vw - 1368px) / 2) 0 0;
+  }
+  @media (--viewportXLarge) {
+    padding: 0 calc((100vw - 1800px) / 2) 0 0;
+  } */
+}
+
+.searchResultContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 0 0 0;
+
+  @media (--viewportMedium) {
+    padding: 0;
+    /**
+     * .container is using flexbox,
+     * This specifies that searchResultContainer is taking 60% from the viewport width
+     */
+    flex-basis: 50%;
+  }
+
+  @media (--viewportLarge) {
+    flex-basis: 62.5%;
+  }
+}
+
+.error {
+  color: var(--colorFail);
+}
+
+.searchString {
+  /* Search string should not break on white spaces - i.e. line-break should happen before. */
+  white-space: nowrap;
+}
+
+.mainPanel {
+  display: none;
+
+  @media (--viewportMedium) {
+    display: flex;
+  }
+}
+
+.mainPanelMapVariant {
+  composes: mainPanel;
+
+  @media (--viewportMedium) {
+    padding: 18px 24px 0 24px;
+    margin-bottom: 21px;
+  }
+
+  @media (--viewportLarge) {
+    padding: 23px 36px 0 36px;
+  }
+}
+
+.searchFiltersMobileMap {
+  padding: 16px 24px;
+
+  @media (--viewportMedium) {
+    display: none;
+  }
+}
+
+.searchFiltersMobileList {
+  padding: 16px 0;
+
+  @media (--viewportMedium) {
+    display: none;
+  }
+}
+
+.searchFiltersPanel {
+  flex-grow: 1;
+  display: flex;
+  padding: 0 24px 24px 24px;
+
+  @media (--viewportLarge) {
+    padding: 0 36px 36px 36px;
+  }
+}
+
+.listings {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.listingsForGridVariant {
+  composes: listings;
+}
+
+.listingsForMapVariant {
+  composes: listings;
+  padding: 0 24px;
+
+  @media (--viewportLarge) {
+    padding: 0 36px;
+  }
+}
+
+.newSearchInProgress {
+  opacity: 0.1;
+}
+
+.searchListingsPanel {
+  flex-grow: 1;
+}
+
+.mapPanel {
+  @media (--viewportMedium) {
+    /**
+     * .container is using flexbox,
+     * This specifies that mapPanel is taking 34% from the viewport width
+     */
+    flex-basis: 50%;
+
+    /* Own layout settings */
+    display: flex;
+    height: 100%;
+  }
+
+  @media (--viewportLarge) {
+    flex-basis: 37.5%;
+  }
+}
+
+.mapWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.map {
+  width: 100vw;
+  height: 100vh;
+
+  @media (--viewportMedium) {
+    /* Map is fixed so that it doesn't scroll along search results */
+    position: fixed;
+    top: var(--topbarHeightDesktop);
+    right: 0;
+    left: unset;
+
+    /* Fixed content needs width relative to viewport */
+    width: 50vw;
+    height: calc(100vh - var(--topbarHeightDesktop));
+  }
+
+  @media (--viewportLarge) {
+    width: 37.5vw;
+  }
+}
+
+.mapRoot {
+  background-color: var(--colorGrey100);
+}
+
+.topSearchBar {
+  background-color: #fffefd;
+  padding: 72px 0 48px 0;
+  @media (max-width: 768px) {
+    padding: 0px 0 30px;
+  }
+  & .searchWrapper {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 950px;
+    padding: 0 24px;
+    & .searchPageheading {
+      padding: 0;
+      font-size: 42px;
+      font-weight: 500;
+      color: var(--darkJungle);
+      line-height: 52px;
+      text-align: center;
+      margin: 60px 0 30px;
+      letter-spacing: 0.1px;
+    }
+    & .searchContainer {
+      position: relative;
+      & form {
+        & > div {
+          height: 52px;
+          border-radius: 50px;
+          border: 1px solid #e5e5e5;
+          & > div {
+            &:nth-child(1) {
+              margin-left: 15px;
+              border-radius: 50px;
+              &::after {
+                top: 50%;
+                width: 24px;
+                height: 24px;
+                left: 20px;
+                padding: 0;
+                content: '';
+                display: block;
+                margin-left: 20px;
+                position: absolute;
+                background-size: 24px;
+                background-position: center;
+                transform: translate(-50%, -50%);
+                background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M11%2019C15.4183%2019%2019%2015.4183%2019%2011C19%206.58172%2015.4183%203%2011%203C6.58172%203%203%206.58172%203%2011C3%2015.4183%206.58172%2019%2011%2019Z%22%20stroke%3D%22%23BBBBBE%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M20.9984%2021.0004L16.6484%2016.6504%22%20stroke%3D%22%23BBBBBE%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+              }
+              & svg {
+                display: none;
+              }
+            }
+          }
+          & input {
+            font-size: 16px;
+            font-weight: 500;
+            color: #bbbbbe;
+            line-height: 24px;
+            letter-spacing: 0px;
+            padding: 5px 40px 5px 25px;
+            background-color: transparent;
+            font-family: var(--dmSansFamily);
+          }
+        }
+      }
+      & .resetButton {
+        top: 50%;
+        right: 0;
+        outline: none;
+        min-height: auto;
+        box-shadow: none;
+        width: fit-content;
+        position: absolute;
+        background-color: transparent;
+        transform: translate(-50%, -50%);
+        &:hover {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.filterHeading {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--darkJungle);
+  line-height: 100%;
+  letter-spacing: 2%;
+  padding-bottom: 20px;
+  font-family: var(--dmSansFamily);
+  & svg {
+    margin-right: 12px;
+  }
+}

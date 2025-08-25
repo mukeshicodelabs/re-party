@@ -1,0 +1,1 @@
+{{set-translations (asset "content/email-texts.json")}}{{t "PurchaseNewOrder.Subject" "You’ve Got a New Order on ReParty!" transactionListingTitle=transaction.listing.title customerDisplayName=transaction.customer.display-name }}

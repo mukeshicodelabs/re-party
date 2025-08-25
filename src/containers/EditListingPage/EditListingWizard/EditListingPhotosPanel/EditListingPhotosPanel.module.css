@@ -1,0 +1,81 @@
+@import '../../../../styles/customMediaQueries.css';
+
+.root {
+  flex-grow: 1;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  flex-grow: 1;
+}
+
+/* ================ Modal ================ */
+
+.modalHeaderWrapper {
+  margin-top: 58px;
+  margin-bottom: 36px;
+  padding: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 34px;
+    padding: 0;
+  }
+}
+
+/* ================ Typography ================ */
+
+/* Title of the modal */
+.modalTitle {
+  composes: marketplaceModalTitleStyles from global;
+}
+
+/* Paragraph for the Modal */
+.modalMessage {
+  composes: marketplaceModalParagraphStyles from global;
+}
+
+
+.previewListingModal {
+  /* z-index: 1; */
+  &>div {
+    &>div {
+      flex-basis: 1024px !important;
+      border-bottom: 0 !important;
+    }
+  }
+
+  & h6 {
+    font-family: var(--playfairfamily);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 52px;
+    /* identical to box height, or 124% */
+    text-align: center;
+    letter-spacing: 0.1px;
+    margin: 0 0 10px;
+    padding: 0;
+    /* Dark Jungle Green */
+    color: var(--darkJungle);
+  }
+
+  & p {
+    /* DM/Body/Regular/Body 2 */
+    font-family: var(--dmSansFamily);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    /* identical to box height, or 156% */
+    text-align: center;
+    letter-spacing: 0.1px;
+    /* Charcoal Grey */
+    color: var(--CharcoalGrey);
+    padding: 0;
+    margin: 0;
+  }
+}

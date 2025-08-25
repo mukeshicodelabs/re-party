@@ -1,0 +1,17 @@
+version: "3"
+services:
+  reparty:
+    env_file: staging.env
+    build:
+      context: .
+      args:
+        - ENVFILE
+      dockerfile: Dockerfile
+    container_name: reparty
+    image: reparty
+    restart: always
+    ports:
+    - "5333:5333"
+    volumes:
+    - /var/www/html/reparty/node_modules
+    - /var/logs/error.log:/var/log/reparty/error.log

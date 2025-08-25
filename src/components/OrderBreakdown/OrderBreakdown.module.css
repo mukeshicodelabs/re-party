@@ -1,0 +1,167 @@
+@import '../../styles/customMediaQueries.css';
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.lineItem {
+  composes: h4 from global;
+  margin: 0;
+  padding: 0;
+
+  /* @media (--viewportMedium) {
+    padding-top: 7px;
+    padding-bottom: 1px;
+  } */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bookingPeriod {
+  flex: 1 1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* padding-bottom: 6px; */
+
+  @media (--viewportMedium) {
+    /* padding-bottom: 8px; */
+  }
+}
+
+.bookingPeriodSectionLeft {
+  text-align: left;
+}
+
+.bookingPeriodSectionRight {
+  text-align: right;
+}
+
+.dayLabel {
+  font-size: 16px;
+  font-weight: 500;
+  color: #434343;
+  line-height: 26px;
+  letter-spacing: 0.1px;
+  text-transform: capitalize;
+  font-family: var(--dmSansFamily);
+}
+
+.dayInfo {
+  font-size: 16px;
+  font-weight: 500;
+  color: #434343;
+  margin: 12px 0 0;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  font-family: var(--dmSansFamily);
+}
+.dayInfoNormalText {
+  font-weight: 500;
+  margin-left: 5px;
+  font-size: 16px;
+  color: #434343;
+}
+.totalPrice {
+  font-family: var(--dmSansFamily);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: var(--desertSand);
+}
+
+.subTotalLineItem {
+  composes: h4 from global;
+  font-weight: var(--fontWeightBold);
+  margin: 0;
+  padding: 5px 0 1px 0;
+
+  @media (--viewportMedium) {
+    padding: 7px 0 1px 0;
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.lineItemTotal {
+  composes: h4 from global;
+  margin: 0;
+  /* padding-top: 6px;
+  padding-bottom: 6px; */
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  @media (--viewportMedium) {
+    /* padding-top: 7px;
+    padding-bottom: 1px; */
+  }
+}
+
+.itemLabel {
+  composes: marketplaceSmallFontStyles from global;
+  flex: 1;
+  font-size: 16px;
+  color: #434343;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  font-family: var(--dmSansFamily);
+}
+
+.itemValue {
+  composes: marketplaceSmallFontStyles from global;
+  font-size: 16px;
+  font-weight: 400;
+  color: #434343;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  font-family: var(--dmSansFamily);
+}
+
+.totalDivider {
+  /* dimensions */
+  width: 100%;
+  height: 1px;
+  margin: 12px 0;
+
+  border: none;
+  background-color: #f3eadb;
+}
+
+.totalLabel {
+  composes: marketplaceSmallFontStyles from global;
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #434343;
+}
+
+.feeInfo {
+  /* composes: marketplaceTinyFontStyles from global; */
+  margin: 0;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #434343;
+  padding-top: 10px;
+  line-height: 22px;
+  padding-bottom: 14px;
+  letter-spacing: 0.1px;
+  color: var(--colorGrey300);
+  font-family: var(--dmSansFamily);
+}

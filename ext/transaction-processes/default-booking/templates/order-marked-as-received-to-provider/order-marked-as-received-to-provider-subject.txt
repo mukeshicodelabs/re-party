@@ -1,0 +1,2 @@
+{{set-translations (asset "content/email-texts.json")}}{{t "OrderMarkedAsReceived.ProviderSubject" "{customerDisplayName} has received the order for {listingTitle}" 
+    listingTitle=transaction.listing.title customerDisplayName=transaction.customer.display-name}}

@@ -1,0 +1,321 @@
+.filters {
+  width: fit-content;
+}
+
+.filterSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  @media(max-width: 768px) {
+    justify-content: flex-start;
+            gap: 10px;
+  }
+}
+
+.filterTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: var(--matterColor);
+}
+
+.filterGroup {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--matterColorNegative);
+}
+
+.filterGroup:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Filter form overrides */
+.filterGroup :global(.filterForm) {
+  margin: 0;
+}
+
+.filterGroup :global(.filterFormLabel) {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--matterColor);
+}
+
+.filterGroup :global(.filterFormItems) {
+  margin: 0;
+}
+
+.filterGroup :global(.filterFormItem) {
+  margin: 8px 0;
+  padding: 0;
+}
+
+.filterGroup :global(.filterFormItemLabel) {
+  font-size: 14px;
+  color: var(--matterColor);
+}
+
+.filterGroup :global(.filterFormItemCount) {
+  font-size: 12px;
+  color: var(--matterColorAnti);
+  margin-left: 4px;
+}
+
+/* Range filter specific styles */
+.filterGroup :global(.rangeFilter) {
+  padding: 16px 0;
+}
+
+.filterGroup :global(.rangeFilterInputs) {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.filterGroup :global(.rangeFilterInput) {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--matterColorNegative);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.filterGroup :global(.rangeFilterInput:focus) {
+  border-color: var(--marketplaceColor);
+  outline: none;
+}
+
+.moreFiltersButton {
+  background: var(--white);
+  width: 207px;
+  min-height: 40px;
+  /* typo */
+  color: #4a4a4a;
+  text-align: center;
+  font-family: var(--dmSansFamily);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  /* 123.077% */
+  letter-spacing: -0.2px;
+  border-radius: 4px;
+  border: 1px solid #e6e6e6;
+  cursor: pointer;
+}
+
+/* Refinement List Styles */
+.refinementList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.refinementListItem {
+  margin: 4px 0;
+}
+
+.refinementLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.refinementCheckbox {
+  margin-right: 8px;
+}
+
+.refinementLabelText {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Hide count display in filter items */
+.filterDropdownMenu :global(.ais-RefinementList-count) {
+  display: none !important;
+}
+
+.filterDropdownMenu :global(.ais-RefinementList-item) {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.filterDropdownMenu :global(.ais-RefinementList-label) {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 0;
+  width: 100%;
+}
+
+.filterDropdownMenu :global(.ais-RefinementList-checkbox) {
+  margin-right: 8px;
+  min-width: 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.filterDropdownMenu :global(.ais-RefinementList-labelText) {
+  display: block;
+  min-width: 134px;
+  font-size: 14px;
+  color: #333;
+}
+
+:global(.accordion__item) {
+@media(max-width: 500px) {
+    width: 100%;
+  }
+}
+
+.filterMenu {
+  position: relative;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  background: var(--white);
+  width: 192px;
+  min-height: 40px;
+  padding: 0px;
+  cursor: pointer;
+  /* typo */
+  color: #4a4a4a;
+  text-align: center;
+  font-family: var(--dmSansFamily);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  /* 123.077% */
+  letter-spacing: -0.2px;
+  cursor: pointer;
+
+  @media(max-width: 500px) {
+    width: 100%;
+  }
+
+  & .filterMenuHeading {
+    &>div {
+      padding: 10px 16px;
+      font-family: var(--dmSansFamily);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      cursor: pointer;
+      letter-spacing: 0.1px;
+      color: #363636;
+      text-align: left;
+      position: relative;
+      &::after{
+        content: "";
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 5px;
+        background-size: contain;
+        background-position: center;
+        background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2210%22%20height%3D%226%22%20viewBox%3D%220%200%2010%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%200.908203L5%205.0917L9%200.908203%22%20stroke%3D%22%23222222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+      }
+    }
+  }
+
+  & .filterDropdownMenu {
+    position: absolute;
+    /* top: 40px; */
+    width: 100%;
+    background-color: var(--white);
+    z-index: 9;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 4px 4px;
+    max-height: 260px;
+    overflow-y: auto;
+    min-width: 192px;
+
+    & ul {
+      padding: 12px;
+      margin: 0;
+
+      & li {
+        & label {
+          margin: 0;
+          display: flex;
+          align-items: flex-start;
+          cursor: pointer;
+          padding: 4px 0;
+          text-align: left;
+          color: #4A4A4A;
+          font-family: var(--dmSansFamily);
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 16px;
+          /* 123.077% */
+          letter-spacing: -0.2px;
+
+          & input {
+            min-width: 1rem;
+            width: 1rem;
+            height: 1rem;
+            margin-right: 8px;
+            display: block;
+            accent-color: #1A2E4D;
+            margin-top: 4px;
+          }
+
+          & span {
+          display: block;
+          min-width: 134px;
+          font-family: var(--dmSansFamily);
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 22px;
+          letter-spacing: 0.1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.customSearchBox {
+  position: relative;
+  width: 100%;
+}
+
+.customSearchBox input {
+  width: 100%;
+  padding: 8px 30px 8px 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.customSearchBox .searchIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.customSearchBox .clearIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  cursor: pointer;
+}
+
+.searchBoxInput {
+  border: none;
+  outline: none;
+  width: 100%;
+}

@@ -1,0 +1,137 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  composes: marketplaceModalFormRootStyles from global;
+
+  justify-content: flex-start;
+
+  @media (--viewportMedium) {
+    justify-content: space-between;
+  }
+}
+
+.password {
+  composes: marketplaceModalPasswordMargins from global;
+  margin-top: 40px;
+
+  @media (max-width: 1160px) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 24px;
+  }
+}
+
+.bottomWrapper {
+  margin-top: 60px;
+  text-align: center;
+  /* composes: marketplaceModalBottomWrapper from global; */
+}
+
+/* Adjust the bottomWrapper's margin to match modals without the helper text */
+.bottomWrapperText {
+  margin-top: 18px;
+  padding: 0;
+
+  /* composes: marketplaceModalBottomWrapperText from global; */
+  & span {
+    font-family: var(--dmSansFamily);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0px;
+
+    & a {
+      color: var(--CharcoalGrey);
+      margin-left: 4px;
+      text-decoration: underline;
+    }
+  }
+}
+
+.bottomWrapperTextTop {
+  margin-bottom: 18px;
+  padding: 0;
+  margin-top: 0;
+
+  /* composes: marketplaceModalBottomWrapperText from global; */
+  & span {
+    font-family: var(--dmSansFamily);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0px;
+
+    & a {
+      color: var(--CharcoalGrey);
+      margin-left: 4px;
+      text-decoration: underline;
+    }
+  }
+}
+
+.recoveryLink {
+  color: var(--CharcoalGrey);
+  text-decoration: underline;
+  composes: marketplaceModalHelperLink from global;
+}
+
+.recoveryLinkInfo {
+  font-family: var(--dmSansFamily);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+
+  composes: marketplaceModalHelperText from global;
+}
+
+.authHeading {
+  margin-bottom: 40px;
+
+  & .loginLogo {
+    text-align: center;
+  }
+
+  & .welcomeMessage {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #1b1b1b;
+    margin: 30px 0 15px;
+
+    @media (max-width: 500px) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+
+  & .authDescription {
+    font-family: var(--dmSansFamily);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    color: #333333;
+
+    @media (max-width: 500px) {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+}
+
+.submitButton {
+  font-family: var(--dmSansFamily);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  min-height: 52px;
+  border-radius: 0;
+  background-color: var(--desertSand);
+}

@@ -1,0 +1,69 @@
+@import '../../../styles/customMediaQueries.css';
+
+.sortBy {
+  margin-right: 9px;
+}
+
+.sortByDesktop {
+  margin-left: auto;
+}
+
+.sortByMenuLabel {
+  display: inline-block;
+  width: auto;
+  height: 48px;
+  min-height: 48px;
+  border-radius: 5px;
+  padding: 0 18px;
+  margin: 0 9px 0 0;
+
+  transition: all var(--transitionStyleButton);
+  cursor: pointer;
+
+  /* Font */
+  color: var(--darkJungle);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 2%;
+  font-family: var(--dmSansFamily);
+
+  /* Button text styles */
+  /* Default button text is centered without decorations */
+  text-align: center;
+  text-decoration: none;
+
+  /* Button borders */
+  border: 1px solid #e5e5e5;
+
+  background-color: var(--colorWhite);
+
+  &:focus,
+  &:hover {
+    outline: none;
+    /* box-shadow: var(--boxShadowFilterButton); */
+    text-decoration: none;
+    border-color: #e5e5e5;
+  }
+
+  &:disabled {
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  @media (--viewportMedium) {
+    /* height: auto; */
+    /* min-height: 0; */
+    padding: var(--marketplaceButtonSmallDesktopPadding);
+    margin: 0;
+
+    /* font-weight: var(--fontWeightMedium);
+    font-size: 13px;
+    line-height: 20px; */
+
+    &:hover,
+    &:focus {
+      /* border-color: transparent; */
+    }
+  }
+}

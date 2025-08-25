@@ -1,0 +1,1 @@
+{{set-translations (asset "content/email-texts.json")}}{{t "PurchaseOrderOperatorMarkedAsShipped.Subject" "You have shipped {listingTitle} to {providerDisplayName}" providerDisplayName=provider.display-name listingTitle=transaction.listing.title}}

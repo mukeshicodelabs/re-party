@@ -1,0 +1,80 @@
+<!doctype html>
+<html data-htmlattr="htmlAttributes">
+
+<head>
+  <meta charset="utf-8">
+  <!--!title-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--!meta-->
+
+  <!-- Favicons and app icons -->
+  <!-- If you want more control, you can create icons using https://realfavicongenerator.net/ and remove generated webmanifest from the server and Page -->
+  <!-- Note: we generate web app manifest from design/branding.json, and it is set in src/components/Page/Page component -->
+  <!-- Note: we don't use favicon.ico by default. However, favicon-48x48.png, favicon-32x32.png, favicon-16x16.png and apple-touch-icon come from hosted assets / Console -->
+  <!-- End Favicons -->
+
+  <!--!link-->
+  <!--!ssrStyles-->
+  <!--!ssrLinks-->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    type="text/css"
+    charset="UTF-8"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+  />
+
+  <style>
+    /**
+      * Inter font is back up font for non-apple environments
+      *
+      * https://rsms.me/inter/
+      * https://github.com/philipbelesky/inter-ui
+      */
+      #ze-snippet{
+        background-color: red !important;
+      }
+  </style>
+
+  <!--!script-->
+
+</head>
+
+<body>
+  <div id="root"><!--!body--></div>
+  <div id="portal-root"></div>
+
+  <!--
+         Stripe script should be on every page, not just the pages that
+         use the API:
+
+         https://stripe.com/docs/stripe.js#including-stripejs
+       -->
+  <script src="https://js.stripe.com/v3/" crossorigin></script>
+  <!--!preloadedStateScript--> 
+
+  <!--!ssrScripts-->
+
+  <!--
+         Note when adding new external scripts/styles/fonts/etc.:
+         If a Content Security Policy (CSP) is turned on, the new URLs
+         should be whitelisted in the policy.
+
+         Check: /server/csp.js
+    -->
+
+    <!-- Start of icodelabs-45662 Zendesk Widget script -->
+<!-- <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a1a266e2-75d2-4a3c-aecb-5e19fc6baa0e"> </script> -->
+ <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=27f8e4ef-6285-4af6-8ffe-84115a0b4e78"> </script>
+<!-- End of icodelabs-45662 Zendesk Widget script -->
+</body>
+
+</html>

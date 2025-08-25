@@ -1,0 +1,215 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+}
+
+.content {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  margin-right: 16px;
+  background-image: unset;
+  background-color: var(--desertSand);
+  & span {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    font-family: var(--dmSansFamily);
+  }
+}
+
+.info {
+  /* flex: 1; */
+  & p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.heading {
+  composes: p from global;
+  margin: 0;
+
+  @media (--viewportMedium) {
+    margin: 0;
+  }
+}
+
+.link {
+  white-space: nowrap;
+}
+
+.mobileBio,
+.desktopBio {
+  /* Preserve newlines, but collapse other whitespace */
+  white-space: pre-line;
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  margin: 0;
+  padding: 0;
+  transition: all 1s ease-in;
+}
+
+.mobileBio {
+  @media (--viewportMedium) {
+    display: none;
+  }
+}
+
+.desktopBio {
+  display: none;
+
+  @media (--viewportMedium) {
+    display: inline;
+
+    &::before {
+      content: ' ';
+    }
+  }
+}
+
+.longWord {
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.showMore {
+  /* Position and dimensions */
+  display: inline;
+  padding: 0;
+
+  /* Borders */
+  border: none;
+
+  /* Colors */
+  color: var(--marketplaceColor);
+
+  /* Text size should be inherited */
+  text-decoration: none;
+
+  font-weight: var(--fontWeightMedium);
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0;
+
+  margin: 0 0 0 5px;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  @media (--viewportMedium) {
+    font-weight: var(--fontWeightMedium);
+    /* margin-top + n * line-height + margin-bottom => x * 8px */
+    /* margin-top: 17px;
+    margin-bottom: 15px; */
+  }
+}
+
+.links {
+  margin-top: 13px;
+
+  @media (--viewportMedium) {
+    margin: 16px 0 0 0;
+  }
+}
+
+.withBioMissingAbove {
+  @media (--viewportMedium) {
+    /* Fix baseline alignment if bio is missing from above */
+    margin-top: 16px;
+  }
+}
+
+.linkSeparator {
+  margin: 0 10px;
+  color: var(--marketplaceColor);
+}
+
+.headingRow {
+  font-family: var(--dmSansFamily);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: var(--darkJungle);
+  display: flex;
+  flex-direction: column;
+
+  @media (--viewportMedium) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+.editProfileDesktop {
+  composes: p from global;
+  display: none;
+  @media (--viewportMedium) {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    color: var(--desertSand);
+    white-space: nowrap;
+    text-transform: capitalize;
+    text-underline-offset: 3px;
+    text-decoration: underline;
+    display: inline;
+  }
+}
+
+.editProfileMobile {
+  composes: p from global;
+  display: inline;
+
+  @media (--viewportMedium) {
+    display: none;
+  }
+  & a {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    color: var(--desertSand);
+    white-space: nowrap;
+    text-transform: capitalize;
+    text-underline-offset: 3px;
+    text-decoration: underline;
+  }
+}
+
+.contact {
+  border: 0;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  width: max-content;
+  color: var(--desertSand);
+  text-underline-offset: 3px;
+  text-decoration: underline;
+  & svg {
+    margin-right: 6px;
+  }
+}
+
+.cardLeftSide {
+  display: flex;
+  /* width: 100%; */
+  align-items: center;
+}
+.rightSide {
+  width: 100%;
+}

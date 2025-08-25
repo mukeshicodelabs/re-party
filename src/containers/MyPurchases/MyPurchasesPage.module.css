@@ -1,0 +1,200 @@
+.orderCard {
+    position: relative;
+    border-radius: 11.63px;
+    border: 1.16px solid #e5e5e5;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.orderCard.deleted {
+    opacity: 0.7;
+    background-color: #f9f9f9;
+}
+
+.avatarSection {
+    position: relative;
+
+    & .icon {
+    position: absolute;
+    z-index: 1;
+    top: 12px;
+    right: 12px;
+    padding: 10px;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 99rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      width: 17.5px;
+      height: 17.5px;
+      stroke: var(--desertSand);
+      /* fill: none; */
+    }
+  }
+}
+.isFavorite {
+  & svg {
+    & path {
+      fill: var(--desertSand);
+    }
+  }
+}
+
+.avatarWrapper {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex: 2 !important;
+    overflow: hidden;
+
+    & .aspectRatioWrapper {
+        width: 100%;
+        height: 264px;
+    }
+
+    & img {
+        width: 100%;
+        height: 264px;
+        object-fit: cover;
+        border-radius: 11px 11px 0 0;
+    }
+    
+    .unavailableOverlay {
+        width: 100%;
+        height: 264px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 11px 11px 0 0;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        
+        & p {
+            margin: 0;
+            font-family: var(--dmSansFamily);
+            font-weight: 500;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+    }
+}
+
+.info {
+    padding: 20px;
+
+    .productType {
+        padding: 0px 10px;
+        background: #fff9ef;
+        border-radius: 99rem;
+        width: fit-content;
+        margin-bottom: 12px;
+        font-family: var(--dmSansFamily);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        /* identical to box height, or 171% */
+        letter-spacing: 0.2px;
+        color: #1b1b1b;
+    }
+
+    .title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        overflow: hidden;
+        border: 0;
+        box-shadow: none;
+        font-family: var(--dmSansFamily);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        color: #1b1b1b;
+        width: 100%;
+        padding: 0;
+        min-height: auto;
+        text-align: left;
+        /* underline  */
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .priceValue {
+        font-family: var(--dmSansFamily);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        margin-top: 16px;
+        padding-top: 10px;
+        border-top: 1px solid #e5e5e5;
+        line-height: 28px;
+        /* identical to box height, or 140% */
+        letter-spacing: 0.2px;
+        color: #1b1b1b;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .avatarNname {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .avatar {
+                width: 20px;
+                height: 20px;
+
+                & span {
+                    font-size: 12px;
+                }
+            }
+
+            & span {
+                font-family: var(--dmSansFamily);
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+                /* identical to box height, or 150% */
+                letter-spacing: 0.2px;
+                color: var(--darkJungle);
+            }
+        }
+    }
+}
+
+
+.listingCards {
+    gap: 40px 20px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    width: 100%;
+
+    @media (min-width: 550px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (--viewportMedium) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1390px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.orderWrapper {
+    padding-top: 42px;
+}

@@ -1,0 +1,2 @@
+{{set-translations (asset "content/email-texts.json")}}
+{{t "ReturnConfirmed.CustomerSubject" "Return confirmed for {listingTitle}" listingTitle=transaction.listing.title}}

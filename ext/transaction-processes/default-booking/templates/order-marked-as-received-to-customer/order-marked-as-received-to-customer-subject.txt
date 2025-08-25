@@ -1,0 +1,2 @@
+
+{{set-translations (asset "content/email-texts.json")}}{{t "OrderMarkRecieved.Subject" "Thanks for confirming that you've received your rental order for {listingTitle}!" listingTitle=transaction.listing.title}}

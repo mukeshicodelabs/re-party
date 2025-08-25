@@ -1,0 +1,18 @@
+@import '../../../styles/customMediaQueries.css';
+
+.panel {
+  flex-grow: 1;
+  padding: 30px 16px 30px 16px;
+
+  @media (--viewportLarge) {
+    padding: 60px 36px 60px 36px;
+    /* border-left: 1px solid var(--colorGrey100); */
+    background-color: var(--colorWhite);
+    max-width: 1145px;
+    margin: 0 auto;
+  }
+
+  @media (--viewportLargeWithPaddings) {
+    /* padding: 48px calc((100% - 1056px) / 2) 82px 59px; */
+  }
+}

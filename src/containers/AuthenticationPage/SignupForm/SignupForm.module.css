@@ -1,0 +1,165 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  composes: marketplaceModalFormRootStyles from global;
+
+  justify-content: flex-start;
+
+  @media (--viewportMedium) {
+    justify-content: space-between;
+  }
+}
+
+.defaultUserFields {
+}
+
+.name {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  @media (--viewportMedium) {
+    margin-top: 40px;
+  }
+  @media (max-width: 1160px) {
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    flex-direction: column;
+  }
+  @media (max-width: 1024px) {
+    gap: 20px;
+    flex-wrap: unset;
+    flex-direction: row;
+  }
+  @media (max-width: 768px) {
+    margin-top: 24px;
+  }
+  @media (max-width: 500px) {
+    gap: 24px;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+
+.row,
+.customFields {
+  margin-top: 40px;
+  @media (max-width: 1160px) {
+    margin-top: 30px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 24px;
+  }
+}
+
+.firstNameRoot {
+  width: calc(50% - 9px);
+  @media (max-width: 1160px) {
+    width: 100%;
+  }
+}
+
+.lastNameRoot {
+  width: calc(50% - 9px);
+}
+
+.password {
+  margin-top: 40px;
+  @media (max-width: 1160px) {
+    margin-top: 30px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 24px;
+  }
+  /* composes: marketplaceModalPasswordMargins from global; */
+}
+
+.phoneNumber {
+  margin-top: 40px;
+  @media (max-width: 1160px) {
+    margin-top: 30px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 24px;
+  }
+}
+.bottomWrapper {
+  margin-top: 60px;
+
+  /* composes: marketplaceModalBottomWrapper from global; */
+  & ul {
+    & li {
+      & label {
+        & span {
+          &:last-child {
+            font-family: var(--dmSansFamily);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0px;
+            color: #949494;
+
+            & span {
+              color: var(--darkJungle);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.authHeading {
+  margin-bottom: 40px;
+
+  & .loginLogo {
+    text-align: center;
+
+    & img {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+    }
+  }
+
+  & .welcomeMessage {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #1b1b1b;
+    margin: 30px 0 15px;
+    @media (max-width: 500px) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+
+  & .authDescription {
+    font-family: var(--dmSansFamily);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    color: #333333;
+    @media (max-width: 500px) {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+}
+
+.submitButton {
+  font-family: var(--dmSansFamily);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  min-height: 52px;
+  border-radius: 0;
+  background-color: var(--desertSand);
+}

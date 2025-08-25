@@ -1,0 +1,48 @@
+@import '../../../styles/customMediaQueries.css';
+
+.noSearchResults {
+  /* composes: h4 from global; */
+
+  /* Reserves 48px of vertical space */
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
+}
+.noResultHeading {
+  color: var(--CharcoalGrey);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.2px;
+  font-family: var(--dmSansFamily);
+}
+
+.createListingLink,
+.resetAllFiltersButton {
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: var(--desertSand);
+  /* Layout */
+  display: inline;
+  margin: 0;
+  padding: 0;
+
+  /* Override button styles */
+  outline: none;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    color: var(--colorGrey700);
+  }
+
+  @media (--viewportMedium) {
+    padding: 3px 0 5px 0;
+  }
+}
