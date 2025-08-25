@@ -1,0 +1,371 @@
+@import '../../../../styles/customMediaQueries.css';
+
+.root {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: relative;
+
+  &:nth-of-type(odd) {
+    background-color: var(--colorWhite);
+  }
+
+  &[id] {
+    scroll-margin-top: var(--topbarHeight);
+
+    @media (--viewportMedium) {
+      scroll-margin-top: var(--topbarHeightDesktop);
+    }
+  }
+}
+
+.sectionContent {
+  padding: 32px 0;
+  position: relative;
+  word-break: break-word;
+
+  @media (--viewportMedium) {
+    padding: 64px 0;
+  }
+}
+
+.backgroundImageWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+:global(#footer) {
+  padding: 60px 40px 40px;
+  background-color: var(--darkJungle);
+
+  @media (max-width: 768px) {
+    padding: 60px 24px 40px;
+  }
+
+  &>div {
+    padding: 0;
+  }
+}
+
+
+:global(#hero-section) {
+  &>div {
+    &:last-child {
+      padding: 50px 0;
+
+      &>div {
+        gap: 120px;
+        max-width: 100%;
+        grid-template-columns: 1fr 1fr;
+
+        @media(max-width: 1500px) {
+          gap: 60px;
+        }
+
+        @media(max-width: 1220px) {
+          gap: 30px;
+        }
+
+        @media(max-width: 960px) {
+          grid-template-columns: 1fr;
+          padding: 0 24px;
+        }
+
+        &>div {
+          &:first-child {
+            @media(max-width: 960px) {
+              order: 2;
+              height: 400px;
+
+              & div {
+                height: 400px;
+              }
+
+              & img {
+                height: 400px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:global(#reparty-intrest) {
+  &>div {
+    padding: 80px 0;
+
+    @media(max-width:1220px) {
+      padding: 60px 0;
+    }
+
+    @media(max-width:768px) {
+      padding: 40px 0;
+    }
+
+    &>div {
+      max-width: 1360px;
+
+      @media(max-width:960px) {
+        gap: 0;
+        padding: 0 24px;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      @media(max-width:768px) {
+        grid-template-columns: 1fr;
+      }
+
+      &>div {
+        &:not(:last-child) {
+          @media(max-width: 768px) {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e2e2;
+          }
+        }
+      }
+    }
+  }
+}
+
+:global(#reparty-buy-sell) {
+  &>div {
+    padding: 0 0 80px;
+
+    @media(max-width: 960px) {
+      padding: 0 0 40px;
+    }
+
+    &>div {
+      max-width: 1360px;
+
+      @media(max-width:960px) {
+        padding: 0 24px;
+      }
+
+      &>div {
+        &:last-child {
+          @media(max-width: 960px) {
+            flex-direction: row;
+          }
+        }
+      }
+    }
+  }
+}
+
+:global(#featured-collections) {
+  &>div {
+    padding-top: 0;
+
+    & header {
+      max-width: 100%;
+      justify-content: center;
+
+      @media(max-width: 960px) {
+        padding: 0 24px;
+      }
+
+      & h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 40px;
+        color: #000000;
+        font-weight: 400;
+        line-height: 63px;
+        letter-spacing: 0.44px;
+        font-family: var(--playfairfamily);
+
+        @media(max-width:960px) {
+          font-size: 30px;
+          line-height: 43px;
+        }
+      }
+    }
+
+    &>div {
+      max-width: 1360px;
+      padding-top: 40px !important;
+
+      @media(max-width:960px) {
+        padding: 0 24px;
+        padding-top: 30px !important;
+      }
+    }
+  }
+}
+
+:global(#reduce-reuse-reparty) {
+  height: 760px;
+
+  @media(max-width: 1220px) {
+    height: 600px;
+  }
+
+  @media(max-width: 1024px) {
+    height: 500px;
+  }
+
+  &>div {
+    &:last-child {
+      height: 100%;
+      display: flex;
+      /* align-items: flex-end; */
+
+      &>div {
+        width: 100%;
+        max-width: 1360px;
+        align-items: center;
+
+        @media(max-width: 960px) {
+          padding: 0 24px;
+        }
+      }
+    }
+  }
+}
+
+.newListingWrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  max-width: 1360px;
+
+  @media(max-width: 960px) {
+    padding: 0 24px;
+  }
+}
+
+:global(#welcome-reparty) {
+  &>div {
+    &:last-child {
+      padding: 130px 0;
+
+      @media(max-width: 1220px) {
+        padding: 60px 0;
+      }
+
+      &>div {
+        @media(max-width: 960px) {
+          padding: 0 24px;
+        }
+      }
+    }
+  }
+}
+
+:global(#faq-section) {
+  &>div {
+    padding-top: 0;
+  }
+
+  & header {
+    margin-bottom: 40px;
+
+    @media(max-width:960px) {
+      margin-bottom: 30px;
+    }
+
+    & h2 {
+      margin: 0;
+      padding: 0;
+      font-size: 40px;
+      color: #000000;
+      font-weight: 400;
+      line-height: 63px;
+      letter-spacing: 0.44px;
+      font-family: var(--playfairfamily);
+
+      @media(max-width:960px) {
+        font-size: 30px;
+        line-height: 43px;
+      }
+    }
+  }
+
+  &>div {
+    &>div {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 32px;
+      max-width: 1360px;
+
+      @media(max-width: 960px) {
+        padding: 0 24px;
+      }
+    }
+  }
+}
+
+:global(#privacy-policy) {
+  &>div {
+    padding-top: 0;
+
+    & header {
+      & h1 {
+        font-size: 36px;
+        font-weight: 400;
+        color: #222222;
+        line-height: 44px;
+        letter-spacing: 0.2px;
+        font-family: var(--playfairfamily);
+
+        @media (max-width: 500px) {
+          font-size: 32px;
+          line-height: 42px;
+        }
+      }
+    }
+
+    &>div {
+      padding-top: 40px;
+      max-width: 1024px;
+    }
+  }
+}
+
+:global(#our-story-section) {
+  &>div>div {
+    max-width: 1024px;
+@media(max-width: 768px){
+      padding: 0 24px;
+    }
+    & hr {
+      margin: 30px 0;
+    }
+
+    & a {
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 24px;
+      padding: 10px 15px;
+      letter-spacing: 0.1px;
+      background-color: var(--desertSand);
+      font-family: var(--dmSansFamily);
+      margin-bottom: 34px;
+    }
+  }
+}
+:global(#how-it-work-section){
+  &>div>div {
+    max-width: 1024px;
+    @media(max-width: 768px){
+      padding: 0 24px;
+    }
+  }
+}
+:global(#term-section){
+  &>div{
+    &>div{
+      max-width: var(--contentMaxWidthPages);
+    }
+  }
+}

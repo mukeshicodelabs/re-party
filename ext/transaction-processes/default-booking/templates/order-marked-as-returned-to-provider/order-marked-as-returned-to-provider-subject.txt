@@ -1,0 +1,1 @@
+{{set-translations (asset "content/email-texts.json")}}{{t "RequestToReturn.Subject" "{customerDisplayName} has returned your order"  customerDisplayName=transaction.customer.display-name listingTitle=transaction.listing.title}}

@@ -1,0 +1,28 @@
+.root {
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+.title {
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.2px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  color: var(--CharcoalGrey);
+}
+
+.subtitle {
+  margin: 0;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--CharcoalGrey);
+  line-height: 44px;
+  letter-spacing: 0.2px;
+  font-family: var(--playfairfamily);
+}

@@ -1,0 +1,36 @@
+@import '../../styles/customMediaQueries.css';
+
+.mobileTopbar {
+  /* Size */
+  width: 100%;
+  /* height: var(--topbarHeight); */
+  height: 80px;
+  /* Layout for child components */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  /* fill */
+  background-color: var(--colorWhite);
+
+  /* shadows */
+  box-shadow: none;
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.desktopTopbar,
+.mobileTopbar {
+  box-shadow: none;
+
+  @media (--viewportLarge) {
+    box-shadow: var(--boxShadowLight);
+  }
+}
+
+.wizard {
+  flex-grow: 1;
+}

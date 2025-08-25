@@ -1,0 +1,394 @@
+{:format :v3,
+ :transitions
+ [{:name :transition/inquire,
+   :actor :actor.role/customer,
+   :actions [{:name :action/update-protected-data}],
+   :to :state/inquiry}
+
+  {:name :transition/request-payment,
+   :actor :actor.role/customer,
+   :actions
+   [{:name :action/update-protected-data}
+    {:name :action/create-pending-booking, :config {:type :time}}
+    {:name :action/privileged-set-line-items}
+    {:name :action/stripe-create-payment-intent}
+    ],
+   :to :state/pending-payment,
+   :privileged? true}
+
+  {:name :transition/request-payment-after-inquiry,
+   :actor :actor.role/customer,
+   :actions
+   [{:name :action/update-protected-data}
+    {:name :action/create-pending-booking, :config {:type :time}}
+    {:name :action/privileged-set-line-items}
+    {:name :action/stripe-create-payment-intent}],
+   :from :state/inquiry,
+   :to :state/pending-payment,
+   :privileged? true}
+
+  {:name :transition/expire-payment,
+   :at
+   {:fn/plus
+    [{:fn/timepoint [:time/first-entered-state :state/pending-payment]}
+     {:fn/period ["PT15M"]}]},
+   :actions
+   [{:name :action/calculate-full-refund}
+    {:name :action/stripe-refund-payment}
+    ;; Keep this action last in the list of actions for
+    ;; the transition
+    {:name :action/decline-booking}],
+   :from :state/pending-payment,
+   :to :state/payment-expired}
+
+  {:name :transition/confirm-payment,
+   :actor :actor.role/customer,
+   :actions [
+    {:name :action/update-protected-data}
+    {:name :action/stripe-confirm-payment-intent}
+    {:name :action/stripe-capture-payment-intent}
+    ],
+   :from :state/pending-payment,
+   :to :state/preauthorized}
+
+  {:name :transition/accept,
+   :actor :actor.role/provider,
+   :actions
+   [{:name :action/accept-booking}
+    {:name :action/stripe-capture-payment-intent}
+    {:name :action/update-protected-data}
+    ],
+   :from :state/preauthorized,
+   :to :state/accepted}
+
+  {:name :transition/operator-accept,
+   :actor :actor.role/operator,
+   :actions
+   [{:name :action/accept-booking}
+    {:name :action/stripe-capture-payment-intent}],
+   :from :state/preauthorized,
+   :to :state/accepted}
+
+  {:name :transition/decline,
+   :actor :actor.role/provider,
+   :actions
+   [{:name :action/calculate-full-refund}
+    {:name :action/stripe-refund-payment}
+    ;; Keep this action last in the list of actions for
+    ;; the transition
+    {:name :action/decline-booking}],
+   :from :state/preauthorized,
+   :to :state/declined}
+  {:name :transition/customer-cancel,
+   :actor :actor.role/customer,
+   :actions
+   [{:name :action/decline-booking}],
+   :from :state/preauthorized,
+   :to :state/declined}
+
+  {:name :transition/operator-decline,
+   :actor :actor.role/operator,
+   :actions
+   [{:name :action/calculate-full-refund}
+    {:name :action/stripe-refund-payment}
+    ;; Keep this action last in the list of actions for
+    ;; the transition
+    {:name :action/decline-booking}],
+   :from :state/preauthorized,
+   :to :state/declined}
+
+  {:name :transition/expire,
+   :at
+   {:fn/min
+    [{:fn/plus
+      [{:fn/timepoint [:time/first-entered-state :state/preauthorized]}
+       {:fn/period ["P6D"]}]}
+     {:fn/plus
+      [{:fn/timepoint [:time/booking-start]} {:fn/period ["P1D"]}]}
+     {:fn/timepoint [:time/booking-end]}]},
+   :actions
+   [{:name :action/calculate-full-refund}
+    {:name :action/stripe-refund-payment}
+    ;; Keep this action last in the list of actions for
+    ;; the transition
+    {:name :action/decline-booking}],
+   :from :state/preauthorized,
+   :to :state/expired}
+
+  {:name :transition/customer-cancel-after-accept,
+   :actor :actor.role/customer,
+   :actions
+   [{:name :action/cancel-booking}],
+   :from :state/accepted,
+   :to :state/declined}
+   
+   {:name :transition/security-deposit-payment,
+    :actor :actor.role/customer,
+    :actions [{:name :action/update-protected-data}],
+    :from :state/accepted,
+    :to :state/security-deposited}
+
+    {:name :transition/mark-delivered,
+  :actor :actor.role/provider,
+   :from :state/security-deposited,
+   :to :state/order-delivered}
+
+   {:name :transition/mark-order-receive,
+   :actor :actor.role/customer,
+   :actions [
+    {:name :action/update-protected-data}
+    {:name :action/stripe-create-payout}
+    ],
+   :from :state/order-delivered,
+   :to :state/order-received}
+
+    {:name :transition/mark-order-returned,
+   :actor :actor.role/customer,
+   :actions [{:name :action/update-protected-data}
+   ],
+   :from :state/order-received,
+   :to :state/order-returned} 
+
+   {:name :transition/mark-order-complete,
+   :actor :actor.role/provider,
+   :actions [{:name :action/update-protected-data}],
+   :from :state/order-returned,
+   :to :state/delivered}
+
+   {:name :transition/additional-fee-request,
+   :actor :actor.role/provider,
+   :actions [{:name :action/update-protected-data}],
+   :from :state/order-returned,
+   :to :state/additional-fee-requested}
+
+    {:name :transition/additional-fee-request-accept,
+   :actor :actor.role/customer,
+   :actions [{:name :action/update-protected-data}],
+   :from :state/additional-fee-requested,
+   :to :state/additional-fee-request-accepted}
+  {:name :transition/additional-fee-deposit-to-provider,
+   :actor :actor.role/customer,
+   :actions [{:name :action/update-protected-data}],
+   :from :state/additional-fee-request-accepted,
+   :to :state/delivered}
+
+   {:name :transition/additional-fee-request-decline,
+   :actor :actor.role/customer,
+   :actions [{:name :action/update-protected-data}],
+   :from :state/additional-fee-requested,
+   :to :state/disputed}
+
+   {:name :transition/dispute-approve,
+   :actor :actor.role/operator,
+   :actions [{:name :action/update-protected-data}],
+   :from :state/disputed,
+   :to :state/dispute-approved}
+  {:name :transition/dispute-rejected,
+   :actor :actor.role/operator,
+   :actions [{:name :action/update-protected-data}],
+   :from :state/disputed,
+   :to :state/declined}
+
+   {:name :transition/dispute-fee-deposit-to-provider,
+   :actor :actor.role/operator,
+   :actions [{:name :action/update-protected-data}],
+   :from :state/dispute-approved,
+   :to :state/delivered}
+  {:name :transition/review-1-by-provider,
+   :actor :actor.role/provider,
+   :actions [{:name :action/post-review-by-provider}],
+   :from :state/delivered,
+   :to :state/reviewed-by-provider}
+  {:name :transition/review-2-by-provider,
+   :actor :actor.role/provider,
+   :actions
+   [{:name :action/post-review-by-provider}
+    {:name :action/publish-reviews}],
+   :from :state/reviewed-by-customer,
+   :to :state/reviewed}
+  {:name :transition/review-1-by-customer,
+   :actor :actor.role/customer,
+   :actions [{:name :action/post-review-by-customer}],
+   :from :state/delivered,
+   :to :state/reviewed-by-customer}
+  {:name :transition/review-2-by-customer,
+   :actor :actor.role/customer,
+   :actions
+   [{:name :action/post-review-by-customer}
+    {:name :action/publish-reviews}],
+   :from :state/reviewed-by-provider,
+   :to :state/reviewed}
+  {:name :transition/expire-review-period,
+   :at
+   {:fn/plus
+    [{:fn/timepoint [:time/booking-end]} {:fn/period ["P7D"]}]},
+   :actions [],
+   :from :state/delivered,
+   :to :state/reviewed}
+  {:name :transition/expire-provider-review-period,
+   :at
+   {:fn/plus
+    [{:fn/timepoint [:time/booking-end]} {:fn/period ["P7D"]}]},
+   :actions [{:name :action/publish-reviews}],
+   :from :state/reviewed-by-customer,
+   :to :state/reviewed}
+  {:name :transition/expire-customer-review-period,
+   :at
+   {:fn/plus
+    [{:fn/timepoint [:time/booking-end]} {:fn/period ["P7D"]}]},
+   :actions [{:name :action/publish-reviews}],
+   :from :state/reviewed-by-provider,
+   :to :state/reviewed}],
+ :notifications
+ [
+  {:name :notification/booking-new-request,
+   :on :transition/confirm-payment,
+   :to :actor.role/provider,
+   :template :booking-new-request}
+
+  {:name :notification/booking-new-request-customer,
+   :on :transition/confirm-payment,
+   :to :actor.role/customer,
+   :template :booking-new-request-customer}
+
+  {:name :notification/booking-request-cancel-customer,
+   :on :transition/customer-cancel,
+   :to :actor.role/customer,
+   :template :customer-cancel-booking}
+
+  {:name :notification/booking-request-cancel-provider,
+   :on :transition/customer-cancel,
+   :to :actor.role/provider,
+   :template :customer-cancel-booking-provider}
+
+  {:name :notification/booking-accepted-request,
+   :on :transition/accept,
+   :to :actor.role/customer,
+   :template :booking-accepted-request}
+
+    {:name :notification/booking-accepted-request-provider,
+   :on :transition/accept,
+   :to :actor.role/provider,
+   :template :booking-accepted-request-provider}
+
+   {:name :notification/security-deposit-payment-to-provider,
+   :on :transition/security-deposit-payment,
+   :to :actor.role/provider,
+   :template :security-deposit-payment-to-provider}
+
+   {:name :notification/security-deposit-payment-to-customer,
+   :on :transition/security-deposit-payment,
+   :to :actor.role/customer,
+   :template :security-deposit-payment-to-customer}
+
+   {:name :notification/order-marked-as-received-to-customer,
+   :on :transition/mark-order-receive,
+   :to :actor.role/customer,
+   :template :order-marked-as-received-to-customer}
+
+   {:name :notification/order-marked-as-received-to-provider,
+   :on :transition/mark-order-receive,
+   :to :actor.role/provider,
+   :template :order-marked-as-received-to-provider}
+
+   {:name :notification/order-marked-as-returned-to-customer,
+   :on :transition/mark-order-returned,
+   :to :actor.role/customer,
+   :template :order-marked-as-returned-to-cutomer}
+
+   {:name :notification/order-marked-as-returned-to-provider,
+   :on :transition/mark-order-returned,
+   :to :actor.role/provider,
+   :template :order-marked-as-returned-to-provider}
+
+   {:name :notification/order-marked-as-delivered-to-customer,
+   :on :transition/mark-delivered,
+   :to :actor.role/customer,
+   :template :order-marked-as-delivered-to-customer}
+   
+   {:name :notification/order-marked-as-delivered-to-provider,
+   :on :transition/mark-delivered,
+   :to :actor.role/provider,
+   :template :order-marked-as-delivered-to-provider}
+   
+   {:name :notification/request-additional-fee,
+   :on :transition/additional-fee-request,
+   :to :actor.role/customer,
+   :template :request-additional-fee}
+
+   {:name :notification/request-additional-fee-aceepted,
+   :on :transition/additional-fee-request-accept,
+   :to :actor.role/provider,
+   :template :request-additional-fee-aceepted}
+
+   {:name :notification/request-additional-fee-declined,
+   :on :transition/additional-fee-request-decline,
+   :to :actor.role/provider,
+   :template :request-additional-fee-declined}
+   
+   {:name :notification/additional-fee-deposite-to-provider,
+   :on :transition/additional-fee-deposit-to-provider,
+   :to :actor.role/provider,
+   :template :additional-fee-deposite-to-provider}
+
+   {:name :notification/order-marked-as-completed,
+   :on :transition/mark-order-complete,
+   :to :actor.role/provider,
+   :template :order-marked-as-completed}
+   
+  {:name :notification/booking-operator-accepted-request-to-customer,
+   :on :transition/operator-accept,
+   :to :actor.role/customer,
+   :template :booking-accepted-request}
+
+  {:name :notification/booking-operator-accepted-request-to-provider,
+   :on :transition/operator-accept,
+   :to :actor.role/provider,
+   :template :booking-operator-accepted-request}
+
+  {:name :notification/booking-declined-request-to-customer,
+   :on :transition/decline,
+   :to :actor.role/customer,
+   :template :booking-declined-request}
+
+  {:name :notification/booking-declined-request-to-provider,
+   :on :transition/decline,
+   :to :actor.role/provider,
+   :template :booking-declined-request-to-provider}
+
+  {:name :notification/request-dispute-approved,
+   :on :transition/dispute-approve,
+   :to :actor.role/provider,
+   :template :request-dispute-approved}
+
+  {:name :notification/booking-operator-declined-request-to-customer,
+   :on :transition/operator-decline,
+   :to :actor.role/customer,
+   :template :booking-declined-request}
+
+  {:name :notification/booking-operator-declined-request-to-provider,
+   :on :transition/operator-decline,
+   :to :actor.role/provider,
+   :template :booking-operator-declined-request}
+
+  {:name :notification/booking-expired-request,
+   :on :transition/expire,
+   :to :actor.role/customer,
+   :template :booking-expired-request}
+  {:name :notification/review-by-provider-first,
+   :on :transition/review-1-by-provider,
+   :to :actor.role/customer,
+   :template :booking-review-by-other-party-unpublished}
+  {:name :notification/review-by-customer-first,
+   :on :transition/review-1-by-customer,
+   :to :actor.role/provider,
+   :template :booking-review-by-other-party-unpublished}
+  {:name :notification/review-by-provider-second,
+   :on :transition/review-2-by-provider,
+   :to :actor.role/customer,
+   :template :booking-review-by-other-party-published}
+  {:name :notification/review-by-customer-second,
+   :on :transition/review-2-by-customer,
+   :to :actor.role/provider,
+   :template :booking-review-by-other-party-published}
+  ]}

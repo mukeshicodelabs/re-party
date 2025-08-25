@@ -1,0 +1,104 @@
+.contactWrapper {
+    background: #c4d4d2 0% 0% no-repeat padding-box;
+    padding: 198px 5% 219px 5%;
+    @media (max-width: 1600px) {
+      padding: 160px 5% 180px 5%;
+    }
+    @media (max-width: 1023px) {
+      padding: 130px 5% 150px 5%;
+    }
+    @media (max-width: 767px) {
+      padding: 80px 20px 110px 20px;
+    }
+  }
+  
+  .successMessage {
+    width: 350px;
+    max-width: 100%;
+    font-size: 0.875rem;
+    pointer-events: auto;
+    background-color: #d6f0e0;
+    /* color: #0d6831; */
+    border-color: #c0e7d0;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+    border-radius: 0.25rem;
+    position: absolute;
+    right: 16px;
+    top: 100px;
+    padding: 10px;
+    text-align: center;
+  }
+  .thankYouModal {
+    padding: 151px 0;
+    text-align: center;
+    background: #C4D4D2;
+    & h1 {
+      font: normal normal 900 80px/90px Roc Grotesk;
+      letter-spacing: 0px;
+      color: #3a3d3a;
+      margin: 0;
+    }
+    & h3 {
+      font: normal normal bold 32px/44px Roc Grotesk;
+      letter-spacing: 0px;
+      color: #3a3d3a;
+      margin: 27px 0 47px;
+    }
+    & a {
+      background: #CDAC00 0% 0% no-repeat padding-box;
+      height: 56px;
+      width: 204px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      font: normal normal bold 20px/36px Roc Grotesk;
+      letter-spacing: 0px;
+      color: #ffffff;
+    }
+  }
+  .needAnswerWrapper {
+    text-align: center;
+    padding: 77px 0;
+    @media (max-width: 767px) {
+      padding: 77px 20px;
+    }
+    & h4 {
+      font: normal normal 900 44px/36px Roc Grotesk;
+      letter-spacing: 0px;
+      color: #3a3d3a;
+      margin: 0;
+    }
+    & p {
+      font: normal normal normal 20px/32px Roc Grotesk;
+      letter-spacing: 0px;
+      color: #3a3d3a;
+      max-width: 581px;
+      margin: 22px auto 34px;
+      padding: 0;
+    }
+    & .buttonContent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      @media (max-width: 580px) {
+        flex-direction: column;
+      }
+      & a {
+        border: 3px solid #CDAC00;
+        height: 56px;
+        width: 204px;
+        font: normal normal bold 20px/32px Roc Grotesk;
+        letter-spacing: 0px;
+        color: #CDAC00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+      }
+    }
+  }
+  

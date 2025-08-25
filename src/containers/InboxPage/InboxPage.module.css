@@ -1,0 +1,386 @@
+@import '../../styles/customMediaQueries.css';
+
+.mobileTopbar {
+  /* Size */
+  width: 100%;
+  height: var(--topbarHeight);
+
+  /* Layout for child components */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* fill */
+  background-color: var(--colorWhite);
+
+  /* shadows */
+  box-shadow: none;
+
+  @media (--viewportMedium) {
+    height: var(--topbarHeightDesktop);
+  }
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.desktopTopbar,
+.mobileTopbar {
+  box-shadow: none;
+
+  @media (--viewportLarge) {
+    /* box-shadow: var(--boxShadowLight); */
+  }
+}
+
+/* .navigation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 29px 24px 0 24px;
+
+  border-top-width: 1px;
+  border-top-color: var(--colorGrey100);
+  border-top-style: solid;
+  background-color: var(--colorWhite);
+  box-shadow: var(--boxShadow);
+
+  @media (--viewportMedium) {
+    padding: 24px 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    flex-wrap: unset;
+    padding: 40px 0 82px 36px;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+  @media (--viewportLargeWithPaddings) {
+    padding: 40px 0 82px calc((100% - 1056px) / 2);
+  }
+} */
+
+.title {
+  align-self: center;
+  padding: 0px 0 8px 0;
+
+  /* Layout */
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @media (--viewportLarge) {
+    padding: 5px 0 3px 0;
+    align-self: unset;
+  }
+}
+
+.tabs {
+  padding-top: 2px;
+
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+
+  @media (--viewportMedium) {
+    padding-top: 12px;
+    padding-top: 20px;
+  }
+
+  @media (--viewportLarge) {
+    padding-top: 24px;
+    flex-direction: column;
+  }
+}
+
+.tab {
+  margin-left: 16px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  @media (--viewportLarge) {
+    margin-left: 0;
+  }
+}
+
+.error {
+  color: var(--colorFail);
+  margin: 23px 24px 24px 24px;
+
+  @media (--viewportLarge) {
+    margin-top: 18px;
+  }
+}
+
+.noResults {
+  padding: 0;
+}
+
+.itemList {
+  margin: 0;
+  padding: 0;
+  max-width: 70%;
+  @media(max-width: 1320px){
+    max-width: 100%;
+  }
+}
+
+@keyframes loadingSpinnerFadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.listItemsLoading {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  opacity: 0;
+
+  /* animation shorthand property doesn't work with local scope of CSS Modules */
+  animation-duration: 1s;
+  animation-name: loadingSpinnerFadeIn;
+  animation-fill-mode: forwards;
+}
+
+.listItem {
+  padding: 0 0 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  @media(max-width: 1320px){
+    gap: 10px;
+    flex-direction: column;
+  }
+}
+
+.itemAvatar {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @media (--viewportMedium) {
+    display: block;
+    align-items: unset;
+  }
+  & a{
+    width: 60px;
+    height: 60px;
+    background-image: linear-gradient(-180deg, var(--marketplaceColorLight) 0%, var(--desertSand) 100%);
+  }
+}
+.itemLinkContainer{
+  gap: 17px;
+  display: flex;
+  align-items: center;
+}
+
+.itemLink {
+  /* flex: 1; */
+
+  /* Layout */
+  /* display: inline-grid; */
+  /* grid-template-columns: 22px auto;
+  grid-template-areas:
+    'dot name    state'
+    '... item    state'
+    '... details state'
+    '... seats   state'; */
+  padding: 0;
+  gap: 4px 0;
+
+  /* Remove text underline from this link */
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover .itemUsername {
+    /* Hightlight the username when the whole item is hovered */
+    /* color: var(--marketplaceColor); */
+  }
+}
+
+.rowNotificationDot {
+  margin-top: 8px;
+  right: 2px;
+  top: 0;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #ff4c4c;
+
+  @media (--viewportLarge) {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.notificationDot {
+  color: var(--colorWhite);
+
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--desertSand);
+}
+
+.itemUsername {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: var(--CharcoalGrey);
+  font-family: var(--dmSansFamily);
+  &:hover{
+    color: var(--CharcoalGrey);
+  }
+}
+.itemTitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: var(--CharcoalGrey);
+  font-family: var(--dmSansFamily);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.itemDetails {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: var(--CharcoalGrey);
+  font-family: var(--dmSansFamily);
+}
+
+.itemSeats {
+  composes: marketplaceTinyFontStyles from global;
+  grid-area: seats;
+  color: var(--colorGrey700);
+
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.itemState {
+  grid-area: state;
+
+  /* Font */
+  composes: marketplaceTinyFontStyles from global;
+  line-height: 18px;
+  font-weight: var(--fontWeightMedium);
+  letter-spacing: normal;
+
+  justify-self: flex-end;
+  text-align: end;
+
+  margin-top: 6px;
+  margin-bottom: 0px;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.pagination {
+  margin: auto 24px 0 24px;
+}
+
+/* Transaction status affects to certain font colors and weights */
+
+.stateName {
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 400;
+  min-width: 200px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  font-family: var(--dmSansFamily);
+  /* This class is empty on purpose, it is used below for banned users */
+}
+
+.stateActionNeeded {
+  font-weight: var(--fontWeightMedium);
+  color: var(--desertSand);
+}
+
+.stateNoActionNeeded {
+  color: var(--colorGrey700);
+}
+
+.stateConcluded {
+  color: var(--colorGrey300);
+}
+
+.bookingActionNeeded {
+  color: var(--colorGrey700);
+  margin-top: 4px;
+
+  @media (--viewportMedium) {
+    margin-top: 9px;
+  }
+}
+
+.bookingNoActionNeeded {
+  color: var(--colorGrey300);
+}
+
+.lastTransitionedAtEmphasized {
+  color: var(--colorGrey700);
+  font-weight: var(--fontWeightMedium);
+}
+
+.lastTransitionedAtNotEmphasized {
+  color: var(--colorGrey300);
+}
+
+.bannedUserLink {
+  & .itemUsername,
+  &:hover .itemUsername,
+  & .stateName {
+    color: var(--colorGrey300);
+  }
+}
+
+.inboxPanel{
+  width: 100%;
+  margin: 24px auto 0 auto;
+
+  @media (--viewportMedium) {
+    margin: 40px auto 0 auto;
+  }
+
+  @media (--viewportLarge) {
+    margin: 40px auto 0 auto;
+  }
+}

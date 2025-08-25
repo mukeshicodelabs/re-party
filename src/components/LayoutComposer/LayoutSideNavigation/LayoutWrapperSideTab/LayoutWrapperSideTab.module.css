@@ -1,0 +1,57 @@
+.logoutButtonBox {
+  margin-right: 32px;
+  border-top: 0.5px solid #f3f3f3;
+  padding: 0px 24px 0px 24px;
+
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
+
+  & .logoutButton {
+    border: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    text-align: left;
+    width: fit-content;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    & svg {
+      fill: #cdac00;
+    }
+
+    & span {
+      color: #cdac00;
+      font-size: 20px;
+      font-weight: 700;
+      margin-left: 8px;
+      line-height: 26px;
+      letter-spacing: 0.0002em;
+    }
+  }
+}
+
+.tabs {
+  padding-right: 41px;
+  & a {
+    & svg {
+      width: 18px;
+    }
+
+    span {
+      margin-left: 8px;
+    }
+  }
+}
+.notifictionTab {
+  position: absolute;
+  right: 50px;
+  & span {
+    font-family: var(--dmSansFamily);
+    font-size: 12px;
+  }
+}

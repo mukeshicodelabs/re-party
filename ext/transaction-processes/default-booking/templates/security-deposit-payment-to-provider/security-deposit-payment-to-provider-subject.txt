@@ -1,0 +1,1 @@
+{{set-translations (asset "content/email-texts.json")}}{{t "BookingMoneySecurityProvider.Subject" "Security money deposit for {listingTitle}" listingTitle=transaction.listing.title}}

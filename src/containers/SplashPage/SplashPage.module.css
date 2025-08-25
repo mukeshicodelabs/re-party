@@ -1,0 +1,519 @@
+/* Container and layout */
+.container {
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml,%3Csvg%20width%3D%223259%22%20height%3D%222806%22%20viewBox%3D%220%200%203259%202806%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20filter%3D%22url(%23filter0_f_716_30)%22%3E%3Cellipse%20cx%3D%22660%22%20cy%3D%221167.5%22%20rx%3D%22160%22%20ry%3D%22149.5%22%20fill%3D%22%23F47DA5%22%20fill-opacity%3D%220.3%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M771.807%20764.841C766.67%20762.651%20762.189%20764.454%20759.999%20769.591C762.189%20764.454%20760.387%20759.973%20755.249%20757.783C760.387%20759.973%20764.867%20758.171%20767.057%20753.033C764.867%20758.171%20766.67%20762.651%20771.807%20764.841Z%22%20fill%3D%22%23FABC57%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M2277.09%201556.34C2271.95%201554.15%202267.47%201555.95%202265.28%201561.09C2267.47%201555.95%202265.67%201551.47%202260.53%201549.28C2265.67%201551.47%202270.15%201549.67%202272.34%201544.53C2270.15%201549.67%202271.95%201554.15%202277.09%201556.34Z%22%20fill%3D%22%23FABC57%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M1472.59%201217.48C1467.96%201221.6%201467.64%201226.96%201471.76%201231.59C1467.64%201226.96%201462.28%201226.64%201457.64%201230.76C1462.28%201226.64%201462.6%201221.28%201458.48%201216.64C1462.6%201221.28%201467.96%201221.6%201472.59%201217.48Z%22%20fill%3D%22%235D9EBC%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M1655.11%201494.03C1650.1%201495.67%201648.15%201500.1%201649.98%201505.7C1648.15%201500.1%201643.96%201497.67%201638.95%201499.31C1643.96%201497.67%201645.91%201493.24%201644.08%201487.64C1645.91%201493.24%201650.1%201495.67%201655.11%201494.03Z%22%20fill%3D%22%2364A27D%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M1639.35%20754.053C1633.74%20756.688%201631.91%20761.738%201634.55%20767.354C1631.91%20761.738%201626.86%20759.914%201621.25%20762.549C1626.86%20759.914%201628.69%20754.864%201626.05%20749.248C1628.69%20754.864%201633.74%20756.688%201639.35%20754.053Z%22%20fill%3D%22%23F47DA5%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M727.002%201160.6C721.047%201162.34%20718.468%201167.05%20720.207%201173C718.468%201167.05%20713.759%201164.47%20707.804%201166.21C713.759%201164.47%20716.338%201159.76%20714.599%201153.8C716.338%201159.76%20721.047%201162.34%20727.002%201160.6Z%22%20fill%3D%22%23F47DA5%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M1209.73%20877.476C1205.86%20875.066%201202.02%20875.959%201199.61%20879.829C1202.02%20875.959%201201.13%20872.116%201197.26%20869.706C1201.13%20872.116%201204.97%20871.223%201207.38%20867.353C1204.97%20871.223%201205.86%20875.066%201209.73%20877.476Z%22%20fill%3D%22%2364A27D%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M2523.75%201137.44C2517.28%201141.7%202515.93%201148.28%202520.19%201154.75C2515.93%201148.28%202509.35%201146.93%202502.88%201151.19C2509.35%201146.93%202510.7%201140.35%202506.44%201133.88C2510.7%201140.35%202517.28%201141.7%202523.75%201137.44Z%22%20fill%3D%22%2364A27D%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M895.697%201489.88C890.81%201494.18%20890.456%201499.81%20894.763%201504.7C890.456%201499.81%20884.83%201499.46%20879.943%201503.76C884.83%201499.46%20885.184%201493.83%20880.877%201488.94C885.184%201493.83%20890.81%201494.18%20895.697%201489.88Z%22%20fill%3D%22%23FABC57%22%20fill-opacity%3D%220.5%22%2F%3E%3Cg%20filter%3D%22url(%23filter1_f_716_30)%22%3E%3Cellipse%20cx%3D%221770.5%22%20cy%3D%222095%22%20rx%3D%22212.5%22%20ry%3D%22211%22%20fill%3D%22%23FFCD7A%22%20fill-opacity%3D%220.2%22%2F%3E%3C%2Fg%3E%3Cg%20filter%3D%22url(%23filter2_f_716_30)%22%3E%3Cellipse%20cx%3D%222485.5%22%20cy%3D%22755%22%20rx%3D%22273.5%22%20ry%3D%22255%22%20fill%3D%22%2398DEFF%22%20fill-opacity%3D%220.25%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3Cfilter%20id%3D%22filter0_f_716_30%22%20x%3D%220%22%20y%3D%22518%22%20width%3D%221320%22%20height%3D%221299%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-opacity%3D%220%22%20result%3D%22BackgroundImageFix%22%2F%3E%3CfeBlend%20mode%3D%22normal%22%20in%3D%22SourceGraphic%22%20in2%3D%22BackgroundImageFix%22%20result%3D%22shape%22%2F%3E%3CfeGaussianBlur%20stdDeviation%3D%22250%22%20result%3D%22effect1_foregroundBlur_716_30%22%2F%3E%3C%2Ffilter%3E%3Cfilter%20id%3D%22filter1_f_716_30%22%20x%3D%221058%22%20y%3D%221384%22%20width%3D%221425%22%20height%3D%221422%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-opacity%3D%220%22%20result%3D%22BackgroundImageFix%22%2F%3E%3CfeBlend%20mode%3D%22normal%22%20in%3D%22SourceGraphic%22%20in2%3D%22BackgroundImageFix%22%20result%3D%22shape%22%2F%3E%3CfeGaussianBlur%20stdDeviation%3D%22250%22%20result%3D%22effect1_foregroundBlur_716_30%22%2F%3E%3C%2Ffilter%3E%3Cfilter%20id%3D%22filter2_f_716_30%22%20x%3D%221712%22%20y%3D%220%22%20width%3D%221547%22%20height%3D%221510%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-opacity%3D%220%22%20result%3D%22BackgroundImageFix%22%2F%3E%3CfeBlend%20mode%3D%22normal%22%20in%3D%22SourceGraphic%22%20in2%3D%22BackgroundImageFix%22%20result%3D%22shape%22%2F%3E%3CfeGaussianBlur%20stdDeviation%3D%22250%22%20result%3D%22effect1_foregroundBlur_716_30%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  box-sizing: border-box;
+  margin-bottom: 90px;
+}
+
+.mainWrapper {
+  width: 100%;
+  padding: 48px 24px;
+  max-width: 1228px;
+}
+
+.leftSection {
+  flex: 1;
+  min-width: 350px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* gap: 77px; */
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.headline {
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 69.6px;
+  letter-spacing: 0%;
+  margin: 44px 0 26px;
+  color: var(--darkJungle);
+
+  @media(max-width: 768px) {
+    font-size: 48px;
+    line-height: 58px;
+  }
+}
+
+.highlight {
+  color: var(--desertSand);
+}
+
+.maindescription {
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.1px;
+  color: var(--darkJungle);
+  margin-bottom: 36px;
+  padding: 0;
+  margin-top: 0;
+}
+
+.waitlistMessage {
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: var(--darkJungle);
+  margin-bottom: 10px;
+}
+
+.form {
+  /* display: flex;
+    flex-direction: column;
+    gap: 16px; */
+  margin-top: 0;
+}
+
+.inputRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media(max-width: 520px) {
+    flex-direction: column;
+  }
+}
+
+.emailInputWrapper {
+  width: calc(50% - 9px);
+
+  @media(max-width: 520px) {
+    width: 100%;
+  }
+}
+
+.input {
+  width: 100%;
+  height: 52px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  padding: 0 14px;
+  border: 1px solid #D1D1D1;
+  color: var(--darkJungle);
+
+  &::placeholder {
+    color: #949494;
+  }
+}
+
+.phoneInputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.phoneInput {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  padding-left: 12px;
+  font-size: 1rem;
+  font-family: var(--dmSansFamily);
+}
+
+.phoneNote {
+  font-family: var(--dmSansFamily);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--darkJungle);
+}
+
+.interestRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 30px;
+  margin-bottom: 26px;
+
+  @media(max-width: 520px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.interestSection {
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.1px;
+  color: var(--desertSand);
+  margin-right: 20px;
+}
+
+.checkboxGroup {
+  display: flex;
+  gap: 24px;
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0;
+}
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 3px;
+  border: 1px solid #f47da5;
+}
+
+.checkbox:checked {
+  background-color: #f47da5;
+}
+
+.checkboxLabel {
+  font-family: var(--dmSansFamily);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: var(--darkJungle);
+}
+
+.joinButton {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background-color: var(--desertSand);
+  border-radius: 10px;
+  border: none;
+  margin-top: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.joinButton:hover {
+  background-color: var(--darkJungle);
+}
+
+.joinButtonText {
+  font-family: var(--dmSansFamily);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.rightSection {
+  flex: 1;
+  /* min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-end;
+    justify-content: center; */
+}
+
+.imageRow {
+  display: flex;
+  gap: 16px;
+}
+
+.decorImage {
+  width: 160px;
+  height: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.decorImageSmall {
+  width: 100px;
+  height: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.inputWithIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inputWithIcon svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  fill: none;
+}
+
+.inputWithIcon input {
+  padding-left: 40px;
+}
+
+.heading {
+  margin-bottom: 56px;
+  color: var(--darkJungle);
+  font-weight: 400;
+  font-size: 45px;
+  line-height: 52px;
+  letter-spacing: 0%;
+  text-align: center;
+
+  @media(max-width: 768px) {
+    font-size: 40px;
+    line-height: 46px;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.card {
+  max-width: 300px;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--dmSansFamily);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 34px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: var(--darkJungle);
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #4D4D4D;
+}
+
+@media (min-width: 768px) {
+  .cards {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card {
+    /* max-width: 250px; */
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .leftSection,
+  .rightSection {
+    align-items: center;
+  }
+
+  .joinButton {
+    width: 100%;
+  }
+}
+
+.grid {
+  column-count: 2;
+  column-gap: 20px;
+  /* padding: 40px 20px; */
+  /* background: #f5f7fa; */
+}
+
+.gridItem {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  &:first-child {
+    margin-top: 110px;
+  }
+}
+
+.gridItem img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalBox {
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 48px 32px 32px 32px;
+  max-width: 800px;
+  width: 90vw;
+  text-align: center;
+  position: relative;
+  animation: modalIn 0.2s cubic-bezier(.4, 0, .2, 1);
+  background-image: url('data:image/svg+xml,%3Csvg%20width%3D%221200%22%20height%3D%221000%22%20viewBox%3D%220%200%201200%201000%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cmask%20id%3D%22mask0_95_80900%22%20style%3D%22mask-type%3Aalpha%22%20maskUnits%3D%22userSpaceOnUse%22%20x%3D%22200%22%20y%3D%22180%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Crect%20x%3D%22200%22%20y%3D%22180%22%20width%3D%22800%22%20height%3D%22600%22%20rx%3D%2230%22%20fill%3D%22white%22%2F%3E%3C%2Fmask%3E%3Cg%20mask%3D%22url(%23mask0_95_80900)%22%3E%3Cg%20filter%3D%22url(%23filter0_f_95_80900)%22%3E%3Ccircle%20cx%3D%22601%22%20cy%3D%22466%22%20r%3D%22243%22%20fill%3D%22white%22%2F%3E%3C%2Fg%3E%3Cg%20filter%3D%22url(%23filter1_f_95_80900)%22%3E%3Ccircle%20cx%3D%22612%22%20cy%3D%22153%22%20r%3D%2299%22%20fill%3D%22%235ACBFF%22%2F%3E%3C%2Fg%3E%3Cg%20opacity%3D%220.8%22%3E%3Cpath%20d%3D%22M233.714%20661.163L264.066%20679.469L270.022%20643.764L233.714%20661.163Z%22%20fill%3D%22%23F4C8C3%22%2F%3E%3Cpath%20d%3D%22M196.392%20478.907L187.33%20457.221L204.941%20465.343L196.392%20478.907Z%22%20fill%3D%22%23A5DBCA%22%2F%3E%3Cpath%20d%3D%22M914.587%20734.209L901.527%20734.264L907.297%20746.895L914.587%20734.209Z%22%20fill%3D%22%23F4C8C3%22%2F%3E%3Cpath%20d%3D%22M988.349%20517.135L995.943%20526.614L1003.59%20513.515L988.349%20517.135Z%22%20fill%3D%22%23A5DBCA%22%2F%3E%3Cpath%20d%3D%22M954.073%20761.35L984.424%20779.656L990.38%20743.951L954.073%20761.35Z%22%20fill%3D%22%2364A17E%22%2F%3E%3Cpath%20d%3D%22M362.171%20805.756L371.312%20774.215L344.913%20800.628L362.171%20805.756Z%22%20fill%3D%22%23F47DA5%22%2F%3E%3Cpath%20d%3D%22M195.813%20640.38L214.07%20637.487L202.523%20617.496L195.813%20640.38Z%22%20fill%3D%22url(%23paint0_linear_95_80900)%22%2F%3E%3Cpath%20d%3D%22M243.783%20600.641L260.319%20608.902L262.548%20585.924L243.783%20600.641Z%22%20fill%3D%22%23F47DA5%22%2F%3E%3Cpath%20d%3D%22M968.693%20603.85L991.28%20612.466L990.959%20587.779L968.693%20603.85Z%22%20fill%3D%22url(%23paint1_linear_95_80900)%22%2F%3E%3Cpath%20d%3D%22M192.349%20533.159C192.349%20533.159%20196.488%20549.984%20173.44%20568.194C148.324%20588.038%20139.71%20600.708%20142.277%20617.271C142.277%20617.271%20142.801%20600.503%20174.589%20577.51C204.791%20555.668%20192.349%20533.159%20192.349%20533.159Z%22%20fill%3D%22url(%23paint2_linear_95_80900)%22%2F%3E%3Cpath%20d%3D%22M239.423%20710.856C244.67%20718.34%20246.918%20728.316%20247.741%20737.9C248.793%20750.153%20245.228%20762.487%20243.095%20774.63C242.056%20780.539%20241.495%20786.246%20243.292%20791.804C243.452%20792.299%20243.63%20792.787%20243.815%20793.273C244.98%20791.553%20246.247%20789.895%20247.619%20788.296C249.076%20786.599%20250.803%20784.912%20252.798%20784.123C254.292%20783.532%20255.778%20783.719%20257.227%20784.126C257.335%20784.037%20258.689%20784.476%20261.281%20785.439C263.229%20786.004%20265.347%20786.571%20266.8%20788.056C268.533%20789.827%20268.954%20792.481%20268.731%20795.107C268.486%20797.993%20267.608%20800.342%20265.389%20802.146C263.024%20804.069%20260.161%20805.106%20257.342%20805.248C254.436%20805.394%20251.707%20804.266%20249.014%20803.404C248.368%20803.198%20247.731%20802.995%20247.105%20802.78C243.444%20810.665%20241.118%20819.66%20239.66%20828.091C238.885%20832.579%20239.225%20837.041%20240.092%20841.346C240.816%20844.944%20241.644%20848.396%20244.005%20850.959C244.849%20846.829%20246.52%20842.87%20249.385%20839.861C253.114%20835.944%20258.929%20833.508%20263.765%20834.476C263.702%20834.448%20263.646%20834.415%20263.581%20834.387C263.784%20834.452%20263.986%20834.516%20264.189%20834.581C264.353%20834.621%20264.518%20834.654%20264.679%20834.702C267.238%20835.471%20270.675%20835.946%20272.813%20837.752C274.961%20839.566%20275.293%20842.673%20274.562%20845.568C273.883%20848.253%20273.197%20851.743%20271.189%20853.708C269.295%20855.562%20266.575%20855.989%20264.259%20856.556C259.612%20857.693%20255.322%20856.837%20251.058%20855.559C250.568%20859.165%20250.654%20862.835%20251.124%20866.348C251.444%20868.733%20251.998%20871.04%20252.63%20873.32C253.228%20875.479%20253.73%20877.742%20255.226%20879.321C254.591%20878.651%20252.368%20878.463%20251.494%20878.186C250.524%20877.879%20248.524%20877.743%20247.788%20876.966C245.894%20874.969%20245.331%20871.673%20244.648%20868.921C243.808%20865.546%20243.322%20862.06%20243.299%20858.49C243.288%20856.725%20243.397%20854.904%20243.646%20853.09C240.332%20851.793%20237.16%20850.001%20235.14%20846.788C233.676%20844.458%20233.111%20841.379%20232.572%20838.588C231.903%20835.126%20231.547%20831.513%20231.916%20827.896C232.272%20824.403%20233.282%20820.963%20234.072%20817.538C234.976%20813.618%20236.145%20809.784%20237.468%20805.983C238.36%20803.422%20239.411%20800.982%20240.62%20798.647C237.161%20794.659%20234.88%20788.452%20234.615%20782.901C234.261%20775.482%20236.601%20767.637%20238.001%20760.316C239.57%20752.109%20241.012%20743.782%20240.304%20735.548C239.676%20728.24%20238.193%20720.448%20235.213%20714.036C232.821%20708.889%20229.359%20704.653%20225.09%20701.509C230.22%20703.909%20234.95%20707.198%20239.423%20710.856ZM259.342%20853.552C260.985%20853.092%20262.685%20852.5%20263.96%20851.127C265.469%20849.502%20266.012%20847.12%20266.611%20845.009C267.48%20841.947%20267.75%20838.926%20266.45%20836.756C263.692%20837.385%20260.872%20838.925%20258.749%20840.515C255.055%20843.282%20252.745%20847.777%20251.644%20852.397C251.458%20853.176%20251.306%20853.961%20251.178%20854.75C253.894%20854.827%20256.578%20854.325%20259.342%20853.552ZM248.471%20799.997C248.33%20800.264%20248.197%20800.538%20248.059%20800.809C248.751%20801.549%20249.493%20802.193%20250.283%20802.839C250.598%20802.825%20250.915%20802.802%20251.236%20802.755C252.418%20802.577%20253.584%20802.25%20254.712%20801.755C256.913%20800.789%20259.333%20799.169%20260.422%20796.706C261.434%20794.416%20261.653%20791.305%20261.095%20788.968C260.887%20788.1%20260.542%20787.291%20260.069%20786.584C258.355%20787.298%20256.801%20788.697%20255.464%20790.185C252.866%20793.073%20250.312%20796.489%20248.471%20799.997Z%22%20fill%3D%22%23A5DBCA%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cdefs%3E%3Cfilter%20id%3D%22filter0_f_95_80900%22%20x%3D%22258%22%20y%3D%22123%22%20width%3D%22686%22%20height%3D%22686%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-opacity%3D%220%22%20result%3D%22BackgroundImageFix%22%2F%3E%3CfeBlend%20mode%3D%22normal%22%20in%3D%22SourceGraphic%22%20in2%3D%22BackgroundImageFix%22%20result%3D%22shape%22%2F%3E%3CfeGaussianBlur%20stdDeviation%3D%2250%22%20result%3D%22effect1_foregroundBlur_95_80900%22%2F%3E%3C%2Ffilter%3E%3Cfilter%20id%3D%22filter1_f_95_80900%22%20x%3D%22-87%22%20y%3D%22-546%22%20width%3D%221398%22%20height%3D%221398%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-opacity%3D%220%22%20result%3D%22BackgroundImageFix%22%2F%3E%3CfeBlend%20mode%3D%22normal%22%20in%3D%22SourceGraphic%22%20in2%3D%22BackgroundImageFix%22%20result%3D%22shape%22%2F%3E%3CfeGaussianBlur%20stdDeviation%3D%22300%22%20result%3D%22effect1_foregroundBlur_95_80900%22%2F%3E%3C%2Ffilter%3E%3ClinearGradient%20id%3D%22paint0_linear_95_80900%22%20x1%3D%22195.813%22%20y1%3D%22628.938%22%20x2%3D%22214.07%22%20y2%3D%22628.938%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220.0056%22%20stop-color%3D%22%23A89100%22%2F%3E%3Cstop%20offset%3D%220.077%22%20stop-color%3D%22%23BCA10F%22%2F%3E%3Cstop%20offset%3D%220.1997%22%20stop-color%3D%22%23D9B824%22%2F%3E%3Cstop%20offset%3D%220.3216%22%20stop-color%3D%22%23EEC933%22%2F%3E%3Cstop%20offset%3D%220.4413%22%20stop-color%3D%22%23FBD33C%22%2F%3E%3Cstop%20offset%3D%220.5562%22%20stop-color%3D%22%23FFD63F%22%2F%3E%3Cstop%20offset%3D%220.6447%22%20stop-color%3D%22%23FAD23C%22%2F%3E%3Cstop%20offset%3D%220.7437%22%20stop-color%3D%22%23EDC832%22%2F%3E%3Cstop%20offset%3D%220.8478%22%20stop-color%3D%22%23D7B622%22%2F%3E%3Cstop%20offset%3D%220.9547%22%20stop-color%3D%22%23B89D0B%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23A89100%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22paint1_linear_95_80900%22%20x1%3D%22968.693%22%20y1%3D%22600.122%22%20x2%3D%22991.28%22%20y2%3D%22600.122%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220.0056%22%20stop-color%3D%22%23FFF2A6%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23CE8704%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22paint2_linear_95_80900%22%20x1%3D%22141.843%22%20y1%3D%22575.216%22%20x2%3D%22194.888%22%20y2%3D%22575.216%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220.0056%22%20stop-color%3D%22%23FFF2A6%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23CE8704%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media(max-width: 600px) {
+    background-position: bottom;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.modalClose {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 2;
+}
+
+.modalClose:hover {
+  color: #f47da5;
+}
+
+.modalIcon {
+  margin-bottom: 18px;
+}
+
+.modalHeadline {
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 60px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--black);
+
+  @media(max-width: 768px) {
+    font-size: 44px;
+    line-height: 55px;
+  }
+}
+
+.modalSubtext {
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #949494;
+
+  @media(max-width: 768px) {
+    font-size: 20px;
+    line-height: 27px;
+  }
+}
+
+.modalDescription {
+  font-family: var(--dmSansFamily);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 90px;
+
+  @media(max-width: 768px) {
+    padding: 0 0;
+  }
+}
+
+.modalButton {
+  background: var(--desertSand);
+  font-family: var(--dmSansFamily);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  border: 1px solid var(--desertSand);
+  padding: 12px 30px;
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modalButton:hover {
+  background: var(--black);
+}

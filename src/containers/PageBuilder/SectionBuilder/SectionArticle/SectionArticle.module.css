@@ -1,0 +1,42 @@
+.articleMain {
+  /* 720px + (2 * 32px) == 784 */
+  max-width: 784px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 32px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.noSidePaddings {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.moreFaqLink {
+  margin-top: 40px;
+  text-align: center;
+
+  & .faqLink {
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 14px 40px;
+    width: max-content;
+    text-decoration: none;
+    letter-spacing: 0.6px;
+    color: var(--darkJungle);
+    text-transform: uppercase;
+    font-family: var(--dmSansFamily);
+    border: 1px solid var(--darkJungle);
+
+    &:hover {
+      color: #FAF9F7;
+      border: 1px solid var(--darkJungle);
+      background-color: var(--darkJungle);
+    }
+  }
+}

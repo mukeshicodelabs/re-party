@@ -1,0 +1,371 @@
+@import '../../styles/customMediaQueries.css';
+
+.layoutWrapperMain {
+}
+
+.root {
+  display: grid;
+  padding: 10px 10px 60px;
+  background-color: #fffefd;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+
+  & > div {
+    &:first-child {
+      position: relative !important;
+      @media (max-width: 1024px) {
+        height: 300px;
+      }
+
+      & > div {
+        display: none;
+      }
+    }
+  }
+}
+
+.contentContainer {
+  composes: marketplaceModalRootStyles from global;
+  min-height: calc(100vh - 60px);
+  height: auto;
+  display: block;
+
+  @media (--viewportMedium) {
+    height: unset;
+    min-height: unset;
+  }
+}
+
+.content {
+  composes: marketplaceModalBaseStyles from global;
+  padding-top: 29px;
+  justify-content: center;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 0;
+    min-height: 100%;
+    border-bottom: 0;
+  }
+  @media (max-width: 1160px) {
+    padding: 55px 30px;
+  }
+  @media (max-width: 500px) {
+    padding: 55px 15px;
+  }
+}
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* ================ Tabs & Form ================ */
+
+.tabs {
+  @media (--viewportMedium) {
+    margin-top: 6px;
+  }
+}
+
+.tab {
+  composes: marketplaceModalTitleStyles from global;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    padding: 0;
+    margin-top: 0;
+  }
+}
+
+.form {
+  margin-top: 24px;
+
+  @media (--viewportMedium) {
+    margin-top: 30px;
+    padding-top: 2px;
+  }
+}
+
+.loginForm {
+  margin-top: 24px;
+
+  /* We don't want the form to take the whole space so that on mobile view
+  the social login buttons will be after the sign up button
+  and not in the bottom of the page.
+  We also need to add flex-basis value so that Safari will show the
+  whole form correctly.  */
+  flex-grow: 0;
+  flex-basis: 260px;
+
+  @media (--viewportMedium) {
+    flex-basis: 330px;
+    margin-top: 30px;
+    padding-top: 2px;
+  }
+}
+
+.signupForm {
+  margin-top: 24px;
+
+  /* We don't want the form to take the whole space so that on mobile view
+  the social login buttons will be after the sign up button
+  and not in the bottom of the page.
+  We also need to add flex-basis value so that Safari will show the
+  whole form correctly.  */
+  flex-grow: 0;
+  flex-basis: 340px;
+
+  @media (--viewportMedium) {
+    flex-basis: 410px;
+    margin-top: 30px;
+    padding-top: 2px;
+  }
+}
+
+.bottomWrapper {
+  composes: marketplaceModalBottomWrapper from global;
+
+  /* Align the helper links to the left since there isn't a Primary Button anymore */
+  text-align: left;
+}
+
+/* Terms of Service modal*/
+
+.privacyWrapper,
+.termsWrapper {
+  width: 100%;
+  padding-top: 40px;
+
+  @media (--viewportMedium) {
+    width: 604px;
+    padding-top: 11px;
+  }
+}
+
+/* userType selection */
+.userTypeSelect {
+  margin-bottom: 24px;
+
+  @media (--viewportMedium) {
+    margin-bottom: 32px;
+  }
+}
+
+.selectedLabel {
+  composes: label from global;
+}
+
+.selectedValue {
+  margin-top: 0;
+  margin-bottom: 6px;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 2px 0 6px 0;
+  }
+}
+
+/* ================ Hide Top bar in screens smaller than 768px  ================ */
+
+.hideOnMobile {
+  display: none;
+
+  @media (--viewportMedium) {
+    display: block;
+  }
+}
+
+/* ================ Close icon ================ */
+
+.verifyClose {
+  composes: marketplaceModalCloseStyles from global;
+
+  /* This is not a real modal, z-index should not be modal's z-index */
+  z-index: 1;
+}
+
+.closeText {
+  composes: marketplaceModalCloseText from global;
+}
+
+.closeIcon {
+  composes: marketplaceModalCloseIcon from global;
+}
+
+/* ================ Typography ================ */
+
+/* Title of the modal */
+.modalTitle {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0px;
+  color: #1b1b1b;
+  margin: 30px 0 15px;
+  @media (max-width: 500px) {
+    font-size: 32px;
+    line-height: 42px;
+  }
+}
+
+/* Paragraph for the Modal */
+.modalMessage {
+  font-family: var(--dmSansFamily);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.1px;
+  color: #333333;
+  @media (max-width: 500px) {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+/* Make the email pop */
+.email {
+  font-weight: var(--fontWeightHighlightEmail);
+
+  /* fallback option */
+  word-break: break-all;
+  /* use break-word if available */
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Helper links */
+.modalHelperLink {
+  composes: a from global;
+  composes: marketplaceModalHelperLink from global;
+}
+
+/* Helper texts for the links, not the actual links */
+.modalHelperText {
+  font-family: var(--dmSansFamily);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  & a,
+  & button {
+    color: var(--CharcoalGrey);
+    font-family: var(--dmSansFamily);
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: underline;
+    line-height: 100%;
+  }
+}
+
+.modalIcon {
+  composes: marketplaceModalIconStyles from global;
+
+  /* Align the icon and rest of the content in the modal. Sign & Login doesn't use an icon, maybe we should add one? */
+  margin-top: 47px;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+  }
+}
+
+/* ================ Errors ================ */
+
+.error {
+  text-align: center;
+  font-family: var(--dmSansFamily);
+  color: #ff2525;
+  composes: marketplaceModalPasswordMargins from global;
+}
+
+/* ================ Social logins & SSO ================ */
+
+.signupWithIdpTitle {
+  composes: marketplaceModalTitleStyles from global;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 16px;
+  color: var(--colorBlack);
+
+  @media (--viewportMedium) {
+    padding: 0;
+    margin-top: 6px;
+  }
+}
+
+.confirmInfoText {
+}
+
+.buttonIcon {
+  position: absolute;
+  left: 0;
+  margin-left: 20px;
+}
+
+.socialButtonWrapper {
+  margin-bottom: 6px;
+
+  @media (--viewportMedium) {
+    margin-top: 8px;
+  }
+}
+
+.socialButtonsOr {
+  width: 100%;
+  height: 32px;
+  margin: 28px 0 20px 0;
+  text-align: center;
+  position: relative;
+  background-color: var(--colorWhite);
+
+  &:after {
+    content: '';
+    width: 100%;
+    border-bottom: solid 1px #d2d2d2;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: 1;
+  }
+}
+
+@media (--viewportMedium) {
+  .socialButtonsOr {
+    height: 34px;
+    margin: 15px 0;
+  }
+}
+
+.socialButtonsOrText {
+  background-color: var(--colorWhite);
+  width: auto;
+  display: inline-block;
+  z-index: 3;
+  padding: 0 20px 0 20px;
+  position: relative;
+  margin: 0;
+}
+
+.authWrapper {
+  max-width: 470px;
+  margin: 0 auto;
+  @media (max-width: 1160px) {
+    max-width: 100%;
+  }
+}
+.loginLogo {
+  text-align: center;
+
+  & img {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+  }
+}

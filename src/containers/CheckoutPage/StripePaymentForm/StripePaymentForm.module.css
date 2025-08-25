@@ -1,0 +1,175 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationWrapper {
+  margin-bottom: 40px;
+}
+
+.heading {
+  margin: 0 0 20px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0px;
+  font-family: var(--dmSansFamily);
+}
+
+.locationDetails {
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  composes: marketplaceInputStyles from global;
+
+  @media (--viewportMedium) {
+    padding: 11px 0 11px 16px;
+  }
+}
+
+.cardError {
+  border: var(--borderErrorField);
+}
+
+.error {
+  color: var(--colorFail);
+  font-size: 13px;
+}
+
+.errorMessage {
+  margin-top: 24px;
+  color: var(--colorFail);
+  font-family: var(--dmSansFamily);
+}
+
+.paymentMethodSelector {
+  margin-bottom: 36px;
+
+  @media (--viewportMedium) {
+    margin-bottom: 40px;
+  }
+}
+
+.saveForLaterUse {
+  padding-top: 6px;
+  margin-bottom: 36px;
+
+  @media (--viewportMedium) {
+    padding-top: 8px;
+    margin-top: 0px;
+    margin-bottom: 48px;
+  }
+}
+
+.saveForLaterUseCheckbox {
+  display: inline-block;
+  padding: 2px 0 3px 0;
+
+  @media (--viewportMedium) {
+    padding: 1px 0 0px 0;
+  }
+}
+
+.saveForLaterUseLabel {
+  color: #222222;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.saveForLaterUseLegalInfo {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  display: inline-block;
+  color: var(--colorGrey300);
+  font-family: var(--dmSansFamily);
+}
+
+.billingDetails {
+  margin-bottom: 48px;
+}
+
+.sameAddressCheckbox {
+  display: block;
+  margin: 24px 0;
+}
+
+.messageLabel {
+  margin: 0 0 5px 0;
+
+  @media (--viewportMedium) {
+    margin: 0 0 6px 0;
+  }
+}
+
+.messageOptional {
+  color: var(--colorGrey300);
+}
+
+.message {
+  border-bottom-color: var(--colorGrey300);
+}
+
+.submitContainer {
+  margin-top: auto;
+
+  @media (--viewportLarge) {
+    margin-top: 72px;
+  }
+}
+
+.paymentInfo {
+  composes: h5 from global;
+
+  color: var(--colorGrey300);
+  text-align: center;
+  margin: 28px 0 0 0;
+
+  @media (--viewportLarge) {
+    font-size: 14px;
+    padding: 2px 0 6px 0;
+    margin: 24px 0 0 0;
+  }
+}
+
+.submitButton {
+  margin-top: 22px;
+  border-radius: 0;
+  
+  @media (--viewportMedium) {
+    margin-top: 26px;
+  }
+  @media (--viewportLarge) {
+    margin-top: 16px;
+  }
+  &:disabled{
+    border: 1px solid var(--colorGrey100);
+  }
+}
+
+.missingStripeKey {
+  color: var(--colorFail);
+}
+
+.invalidAddress{
+  font-size: 18px;
+  font-weight: 400;
+  color: #a91212;
+  line-height: 28px;
+  margin: 20px 0;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  text-align: left;
+  font-family: var(--dmSansFamily);
+}
+.selectedMethod{
+  margin-bottom: 20px;
+}
